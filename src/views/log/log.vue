@@ -1,9 +1,11 @@
 <script setup>
+
 </script>
 
 <template>
-   <router-view :key="$route.fullPath"/>
+ <span>首页</span>
 </template>
 
 <style scoped>
+
 </style>
