@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yilena.service.dao.VideoFavoritesMapper">
+
+    <insert id="addVideoFavorites">
+        insert into video_favorites(id, video_id, folder_id, user_id, created_time, updated_time)
+        values(#{id}, #{videoId}, #{folderId}, #{userId}, #{createdTime}, #{updatedTime})
+    </insert>
+    <delete id="deleteVideoFavorites">
+        delete from video_favorites where video_id = #{videoId} and user_id = #{userId}
+    </delete>
+    <select id="isFavoritesFolder" resultType="com.yilena.service.entity.po.VideoFavorites">
+        select id, video_id as videoId, folder_id as folderId, user_id as userId, created_time as createdTime, updated_time as updatedTime
+        from video_favorites where video_id = #{videoId} and user_id = #{userId}
+    </select>
+</mapper>

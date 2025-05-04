@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yilena.service.dao.FavoritesFolderMapper">
+
+
+    <insert id="addFavoritesFolder">
+        insert into favorites_folder(id,title, video_ids, user_id, cover_url, is_cover_auto,
+                                     visibility, video_count, clicks, subscribers, is_default,
+                                     created_time, updated_time)
+        values(#{id},#{title}, #{videoIdsJson}, #{userId}, #{coverUrl}, #{isCoverAuto}, #{visibility},
+                #{videoCount}, #{clicks}, #{subscribersJson}, #{isDefault}, #{createdTime},#{updatedTime})
+    </insert>
+    <update id="updateFavoritesFolder">
+        update favorites_folder
+        <set>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="videoIdsJson != null">
+                video_ids = #{videoIdsJson},
+            </if>
+            <if test="coverUrl != null">
+                cover_url = #{coverUrl},
+            </if>
+            <if test="isCoverAuto != null">
+                is_cover_auto = #{isCoverAuto},
+            </if>
+            <if test="visibility != null">
+                visibility = #{visibility},
+            </if>
+            <if test="videoCount != null">
+                video_count = #{videoCount},
+            </if>
+            <if test="clicks != null">
+                clicks = #{clicks},
+            </if>
+            <if test="subscribersJson != null">
+                subscribers = #{subscribersJson},
+            </if>
+            <if test="isDefault != null">
+                is_default = #{isDefault},
+            </if>
+            <if test="updatedTime != null">
+                updated_time = #{updatedTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <delete id="deleteFavoritesFolder">
+        delete from favorites_folder where id = #{id}
+    </delete>
+    <select id="getFavoritesFolderByList" resultType="com.yilena.service.entity.vo.FavoritesFolderVO">
+        select id, title, user_id as userId, cover_url as coverUrl,is_cover_auto as isCoverAuto,
+               visibility, video_count as videoCount, clicks,is_default as isDefault, created_time as createdTime, updated_time as updatedTime
+        from favorites_folder
+        where user_id = #{userId}
+    </select>
+    <select id="getFavoritesFolderById" resultType="com.yilena.service.entity.po.FavoritesFolder">
+        select id, title, video_ids as videoIdsJson, user_id as userId, cover_url as coverUrl,
+               is_cover_auto as isCoverAuto, visibility, video_count as videoCount, clicks,
+               subscribers as subscribersJson, is_default as isDefault, created_time as createdTime, updated_time as updatedTime
+        from favorites_folder
+        where id = #{id}
+    </select>
+    <select id="getOthersFavoritesFolderByList" resultType="com.yilena.service.entity.vo.FavoritesFolderVO">
+        select id, title, video_ids as videoIdsJson, user_id as userId, cover_url as coverUrl,
+               is_cover_auto as isCoverAuto, visibility, video_count as videoCount, clicks,
+               subscribers as subscribersJson, is_default as isDefault, created_time as createdTime, updated_time as updatedTime
+        from favorites_folder
+        where user_id = #{userId} and visibility = 1
+    </select>
+    <select id="getSubscribeFavoritesFolder" resultType="com.yilena.service.entity.vo.FavoritesFolderVO">
+        select id, title, video_ids as videoIds, user_id as userId, cover_url as coverUrl,
+               is_cover_auto as isCoverAuto, visibility, video_count,
+               clicks, subscribers, is_default, created_time, updated_time,video_count as videoCount
+        from favorites_folder
+        WHERE JSON_CONTAINS(subscribers, CAST(#{userId} AS JSON)) and visibility = 1
+    </select>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yilena.service.dao.ShareMapper">
+
+    <insert id="addShare">
+        insert into share(id,entity_id,entity_type,user_id,created_time)
+        values(#{id},#{entityId},#{entityType},#{userId},#{createdTime})
+    </insert>
+    <select id="getIsShare" resultType="com.yilena.service.entity.po.Share">
+        select * from share where entity_id = #{entityId} and entity_type = #{entityType} and user_id = #{userId}
+    </select>
+</mapper>

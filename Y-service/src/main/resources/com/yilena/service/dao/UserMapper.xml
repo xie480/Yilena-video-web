@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yilena.service.dao.UserMapper">
+    <insert id="addUser">
+       insert into user(id,username,password,image,description,following_count,followers_count,coins,status,created_time,updated_time,post_count,video_count)
+        values(#{id},#{username},#{password},#{image},#{description},#{followingCount},#{followersCount},#{coins},#{status},#{createdTime},#{updatedTime},#{postCount},#{videoCount})
+    </insert>
+    <update id="updateUserById">
+        update user
+        <set>
+        <if test="username != null and username != ''">username = #{username},</if>
+        <if test="password != null and password != ''">password = #{password},</if>
+        <if test="image != null and image != ''">image = #{image},</if>
+        <if test="description != null">description = #{description},</if>
+        <if test="followingCount != null">following_count = #{followingCount},</if>
+        <if test="followersCount != null">followers_count = #{followersCount},</if>
+        <if test="coins != null">coins = #{coins},</if>
+        <if test="status != null">status = #{status},</if>
+        <if test="createdTime != null">created_time = #{createdTime},</if>
+        <if test="updatedTime != null">updated_time = #{updatedTime},</if>
+        <if test="postCount != null">post_count = #{postCount},</if>
+        <if test="reason != null">reason = #{reason},</if>
+        <if test="videoCount != null">video_count = #{videoCount}</if>
+        </set>
+        where id = #{id}
+    </update>
+    <update id="updateIsRecord">
+        update user set is_record = #{isRecord} where id = #{userId}
+    </update>
+    <select id="getByUsername" resultType="com.yilena.service.entity.po.User">
+        select id, username, password, description, image, following_count as followingCount, followers_count as followersCount,
+               coins, status, created_time as createdTime, updated_time as updatedTime, post_count as postCount,reason,video_count as videoCount,is_Record as isRecord
+        from user where username = #{username}
+    </select>
+    <select id="getUserById" resultType="com.yilena.service.entity.po.User">
+        select id, username, password, description, image, following_count as followingCount, followers_count as followersCount,
+               coins, status, created_time as createdTime, updated_time as updatedTime,post_count as postCount,reason,video_count as videoCount,is_Record as isRecord
+        from user where id = #{id}
+    </select>
+    <select id="getUserByIds" resultType="com.yilena.service.entity.vo.UserVO">
+        select id, username, image, following_count as followingCount, followers_count as followersCount,video_count as videoCount
+        from user
+        <where>
+            <if test="username != null">
+                username like concat('%', #{username}, '%') and
+            </if>
+                    id in
+            <foreach collection="ids" item="id" open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </where>
+    </select>
+</mapper>

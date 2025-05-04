@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yilena.service.dao.VideoMapper">
+    <insert id="addVideo">
+        insert into video(id,title, description,barrages, video_url, cover_url, tags, views, likes,
+                                  favorites, shares, coins, comments, user_id, collection_id, visibility,
+                                  created_time, updated_time,sort,time,last_id)
+        values(#{id},#{title}, #{description},#{barrages}, #{videoUrl}, #{coverUrl}, #{tagsJson}, #{views},
+               #{likes}, #{favorites}, #{shares}, #{coins}, #{comments}, #{userId}, #{collectionId},
+               #{visibility}, #{createdTime}, #{updatedTime},#{sort},#{time},#{lastId})
+    </insert>
+    <update id="updateVideo">
+        update video
+        <set>
+        <if test="title != null">
+            title = #{title},
+        </if>
+        <if test="description != null">
+            description = #{description},
+        </if>
+        <if test="videoUrl != null">
+            video_url = #{videoUrl},
+        </if>
+        <if test="coverUrl != null">
+            cover_url = #{coverUrl},
+        </if>
+        <if test="tags != null">
+            tags = #{tagsJson},
+        </if>
+        <if test="barrages != null">
+             barrages = #{barrages},
+        </if>
+        <if test="views != null">
+             views = #{views},
+        </if>
+        <if test="likes != null">
+            likes = #{likes},
+        </if>
+        <if test="favorites != null">
+            favorites = #{favorites},
+        </if>
+        <if test="shares != null">
+            shares = #{shares},
+        </if>
+        <if test="coins != null">
+            coins = #{coins},
+        </if>
+        <if test="comments != null">
+            comments = #{comments},
+        </if>
+        <if test="time != null">
+            time = #{time},
+        </if>
+        <if test="collectionId != null">
+            collection_id = #{collectionId},
+        </if>
+        <if test="visibility != null">
+            visibility = #{visibility},
+        </if>
+        <if test="sort != null">
+            sort = #{sort},
+        </if>
+            updated_time = #{updatedTime}
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteVideo">
+        delete
+        from video
+        where id = #{id}
+    </delete>
+    <select id="getVideoById" resultType="com.yilena.service.entity.po.Video">
+        select id,title, description, video_url as videoUrl, cover_url as coverUrl, tags as tagsJson, barrages, views, likes, favorites,
+               shares, coins, comments, time, user_id as userId, collection_id as collectionId, visibility,
+               created_time as createdTime, updated_time as updatedTime,sort,last_id as lastId
+        from video
+        where id = #{id}
+    </select>
+    <select id="getVideoByIds" resultType="com.yilena.service.entity.vo.VideoVO">
+        select id, title, description, video_url as videoUrl, cover_url as coverUrl,
+               tags as tagsJson, barrages, views, likes, favorites,
+               shares, coins, comments, time, user_id as userId, collection_id as collectionId,
+               visibility,created_time as createdTime, updated_time as updatedTime,sort,last_id as lastId
+        from video
+        where id in
+        <foreach collection="videoIds" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+    <select id="getVideoCoins" resultType="com.yilena.service.entity.vo.VideoVO">
+        select id, title, cover_url as coverUrl,
+            barrages, views, likes, favorites,
+            shares, coins, comments, time, user_id as userId,
+            visibility,created_time as createdTime, updated_time as updatedTime,sort,last_id as lastId
+        from video
+        where visibility = 1 and id in
+        <foreach collection="videoIds" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+    <select id="getLeftRecommendVideos" resultType="com.yilena.service.entity.vo.VideoVO">
+        SELECT
+            id, title, description, video_url AS videoUrl, cover_url AS coverUrl,
+            tags AS tagsJson, barrages, views, likes, favorites, shares, coins,
+            comments, time, user_id AS userId, collection_id AS collectionId,
+            visibility, created_time AS createdTime, updated_time AS updatedTime, sort,last_id as lastId
+        FROM video
+        WHERE visibility = 1
+        ORDER BY RAND()
+        LIMIT 16;
+    </select>
+    <select id="getUserVideoAllViews" resultType="java.lang.Long">
+        select sum(views) from video where user_id = #{userId}
+    </select>
+    <select id="getUserVideoAllCoins" resultType="java.lang.Long">
+        select sum(coins) from video where user_id = #{userId}
+    </select>
+    <select id="getUserVideoAllComments" resultType="java.lang.Long">
+        select sum(comments) from video where user_id = #{userId}
+    </select>
+    <select id="getUserVideoAllBarrages" resultType="java.lang.Long">
+        select sum(barrages) from video where user_id = #{userId}
+    </select>
+    <select id="getUserVideoAllLikes" resultType="java.lang.Long">
+        select sum(likes) from video where user_id = #{userId}
+    </select>
+    <select id="getUserVideoAllShares" resultType="java.lang.Long">
+        select sum(shares) from video where user_id = #{userId}
+    </select>
+    <select id="getUserVideoAllFavorites" resultType="java.lang.Long">
+        select sum(favorites) from video where user_id = #{userId}
+    </select>
+    <select id="getVideoByUserId" resultType="com.yilena.service.entity.po.Video">
+        select id,title, description, video_url as videoUrl, cover_url as coverUrl, tags as tagsJson, barrages, views, likes, favorites,
+               shares, coins, comments, time, user_id as userId, collection_id as collectionId, visibility,
+               created_time as createdTime, updated_time as updatedTime,sort,last_id as lastId
+        from video
+        where user_id = #{userId} and visibility = 1
+    </select>
+    <select id="getVideoIdByUserId" resultType="java.lang.Long">
+        select id from video
+        <where>
+        <if test="videoTitle != null and videoTitle != ''">
+            and title like concat('%',#{videoTitle},'%')
+        </if>
+        and user_id = #{currentUserId}
+        </where>
+    </select>
+    <select id="getUserInfoVideosByNew" resultType="com.yilena.service.entity.vo.VideoVO">
+        select id, title, description, video_url as videoUrl, cover_url as coverUrl,
+            barrages, views, likes, favorites,
+            shares, coins, comments, time, user_id as userId,
+            visibility,created_time as createdTime, updated_time as updatedTime,sort,last_id as lastId
+        from video
+        where user_id = #{userId}
+        order by created_time desc
+        limit 30
+    </select>
+    <select id="getUserInfoVideosByViews" resultType="com.yilena.service.entity.vo.VideoVO">
+        select id, title, description, video_url as videoUrl, cover_url as coverUrl,
+               barrages, views, likes, favorites,
+               shares, coins, comments, time, user_id as userId,
+               visibility,created_time as createdTime, updated_time as updatedTime,sort,last_id as lastId
+        from video
+        where user_id = #{userId}
+        order by views desc
+        limit 30
+    </select>
+    <select id="getUserInfoVideosByFavorites" resultType="com.yilena.service.entity.vo.VideoVO">
+        select id, title, description, video_url as videoUrl, cover_url as coverUrl,
+               barrages, views, likes, favorites,
+               shares, coins, comments, time, user_id as userId,
+               visibility,created_time as createdTime, updated_time as updatedTime,sort,last_id as lastId
+        from video
+        where user_id = #{userId}
+        order by favorites desc
+        limit 30
+    </select>
+    <select id="getFollowingFromReportCount" resultType="java.lang.Integer">
+        select count(*)
+        from user_following
+        where followed_id = #{userId}
+          and created_time between #{beginDateTime} and #{endDateTime}
+    </select>
+    <select id="getLikeFromReportCount" resultType="java.lang.Integer">
+        select count(DISTINCT l.id)
+        from video as v
+                 left join likes as l
+                           on v.user_id = #{userId} and l.user_id != #{userId}
+        where l.created_time between #{beginDateTime} and #{endDateTime}
+    </select>
+    <select id="getFavoriteFromReportCount" resultType="java.lang.Integer">
+        select count(DISTINCT vf.id)
+        from video as v
+                 left join video_favorites as vf
+                           on v.user_id = #{userId} and vf.user_id != #{userId}
+        where vf.created_time between #{beginDateTime} and #{endDateTime}
+    </select>
+    <select id="getCoinFromReportCount" resultType="java.lang.Integer">
+        select count(DISTINCT vc.id)
+        from video as v
+                 left join video_coins as vc
+                           on v.user_id = #{userId} and vc.user_id != #{userId}
+        where vc.created_time between #{beginDateTime} and #{endDateTime}
+    </select>
+    <select id="getCommentFromReportCount" resultType="java.lang.Integer">
+        select count(DISTINCT c.id)
+        from video as v
+                 left join comment as c
+                           on v.user_id = #{userId} and c.user_id != #{userId}
+        where c.created_time between #{beginDateTime} and #{endDateTime}
+    </select>
+</mapper>

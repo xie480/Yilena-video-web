@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yilena.service.dao.HotSearchMapper">
+    <insert id="addSearchHistory">
+        insert into hot_search(id,content, search_count, created_time)
+        values(#{id},#{content}, #{searchCount}, #{createdTime})
+    </insert>
+
+    <update id="updateSearchHistory">
+        update hot_search
+        set search_count = #{searchCount}
+        where id = #{id}
+    </update>
+    <delete id="deleteHotSearchLtHundredCount">
+        delete from hot_search
+        where search_count &lt; 100
+    </delete>
+    <select id="getHotSearchVideo" resultType="com.yilena.service.entity.po.HotSearch">
+        select id, content, search_count as searchCount, created_time as createdTime
+        from hot_search
+        order by search_count desc
+        limit 10
+    </select>
+    <select id="getHotSearchVideoByContent" resultType="com.yilena.service.entity.po.HotSearch">
+        select id, content, search_count as searchCount, created_time as createdTime
+        from hot_search
+        where content = #{content}
+    </select>
+</mapper>

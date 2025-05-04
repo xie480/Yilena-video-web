@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yilena.service.dao.PostMapper">
+
+
+    <insert id="addPost">
+        insert into post(id,title, content, image_url, tags,video_id, clicks, likes, favorites,
+                         shares, comments, user_id, visibility,
+                         created_time, updated_time)
+        values(#{id},#{title}, #{content}, #{imageUrlJson}, #{tagsJson},#{videoId}, #{clicks}, #{likes},
+               #{favorites}, #{shares}, #{comments}, #{userId}, #{visibility},
+               #{createdTime}, #{updatedTime})
+    </insert>
+    <update id="updatePost">
+        update post
+        <set>
+        <if test="title != null">
+            title = #{title},
+        </if>
+        <if test="content != null">
+            content = #{content},
+        </if>
+        <if test="imageUrl != null">
+            image_url = #{imageUrlJson},
+        </if>
+        <if test="tags != null">
+            tags = #{tagsJson},
+        </if>
+        <if test="clicks != null">
+            clicks = #{clicks},
+        </if>
+        <if test="likes != null">
+            likes = #{likes},
+        </if>
+        <if test="favorites != null">
+            favorites = #{favorites},
+        </if>
+        <if test="shares != null">
+            shares = #{shares},
+        </if>
+        <if test="comments != null">
+            comments = #{comments},
+        </if>
+        <if test="visibility != null">
+            visibility = #{visibility},
+        </if>
+            updated_time = #{updatedTime}
+        </set>
+        where id = #{id}
+    </update>
+    <delete id="deletePost">
+        delete
+        from post
+        where id = #{id}
+    </delete>
+    <select id="getPostById" resultType="com.yilena.service.entity.po.Post">
+        select id,title, content, image_url as imageUrlJson, tags as tagsJson, video_id as videoId,
+               clicks, likes, favorites, shares, comments, user_id as userId,
+               visibility, created_time as createdTime, updated_time as updatedTime
+        from post where id = #{id} order by created_time desc
+    </select>
+    <select id="getPostByUserIds" resultType="com.yilena.service.entity.vo.PostVO">
+        select p.id,title, content, image_url as imageUrlJson, tags as tagsJson, video_id as videoId,
+               clicks, likes, favorites, shares, comments, user_id as userId,
+               visibility, p.created_time as createdTime, p.updated_time as updatedTime,
+               u.username,u.image as image
+        from post as p
+        left join user as u
+        on p.user_id = u.id
+        where p.visibility = 1 and p.user_id in
+        <foreach collection="followingIds" item="id" open="(" separator="," close=")">
+             #{id}
+        </foreach>
+        order by p.created_time desc
+    </select>
+    <select id="getMyPost" resultType="com.yilena.service.entity.vo.PostVO">
+        select p.id,title, content, image_url as imageUrlJson, tags as tagsJson, video_id as videoId,
+               clicks, likes, favorites, shares, comments, user_id as userId,
+               visibility, p.created_time as createdTime, p.updated_time as updatedTime,
+               u.username,u.image as image
+        from post as p
+                 left join user as u
+                           on p.user_id = u.id
+        where p.user_id =  #{userId}
+        order by p.created_time desc
+    </select>
+    <select id="getPostByUserId" resultType="com.yilena.service.entity.vo.PostVO">
+        select p.id,title, content, image_url as imageUrlJson, tags as tagsJson, video_id as videoId,
+        clicks, likes, favorites, shares, comments, user_id as userId,
+        visibility, p.created_time as createdTime, p.updated_time as updatedTime,
+        u.username,u.image as image
+        from post as p
+        left join user as u
+        on p.user_id = u.id
+        where p.visibility = 1 and p.user_id =  #{userId}
+        order by p.created_time desc
+    </select>
+</mapper>

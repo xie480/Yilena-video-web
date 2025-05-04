@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="09ca584b-52f9-4abb-9488-76c8c074efab" name="更改" comment="2025/5/4——添加日志记录功能" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Exception" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="test" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;xie480&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/xie480/Yilena-video-web.git&quot;,
+    &quot;accountId&quot;: &quot;fa28999f-0dfe-42f0-887e-35061c2778b4&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="F:\apache-maven-3.9.9-bin\apache-maven-3.9.9\repo" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="23" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2uZpBovFKMQZCMuytUCAedO7XbK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.test.getID.executor": "Debug",
+    "JUnit.test.test.executor": "Run",
+    "Maven.Y-service [clean].executor": "Run",
+    "Maven.Y-service [compile].executor": "Run",
+    "Maven.Y-service [install].executor": "Run",
+    "Maven.Y-service [site].executor": "Run",
+    "Maven.Y-service [test].executor": "Run",
+    "Maven.Y-service [validate].executor": "Run",
+    "Maven.Yilena-video-web [clean].executor": "Run",
+    "Maven.Yilena-video-web [compile].executor": "Run",
+    "Maven.Yilena-video-web [install].executor": "Run",
+    "Maven.Yilena-video-web [test].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.MainApplication.executor": "Debug",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "F:/YilenaCode/Yilena-video-web/Y-service/src/test/java",
+    "last_opened_file_path": "F:/YilenaCode/YVW/pom.xml",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.yilena.service.es.Service" />
+      <recent name="com.yilena.service.entity.vo" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\YilenaCode\Yilena-video-web\Y-service\src\main\resources\com\yilena\service\dao" />
+      <recent name="F:\YilenaCode\Yilena-video-web\Y-service\src\main\java\com\yilena\service\controller\user" />
+      <recent name="F:\YilenaCode\Yilena-video-web\Y-service\src\main\resources" />
+      <recent name="\" />
+      <recent name="F:\YilenaCode\Yilena-video-web\Y-service\src\main\java\com\yilena\service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\YilenaCode\Yilena-video-web\Y-gateway\src\main\java\com\yilena\gateway" />
+      <recent name="F:\YilenaCode\Yilena-video-web\Y-video\src\main\resources" />
+      <recent name="F:\YilenaCode\Yilena-video-web\Y-common\src\main\resources" />
+      <recent name="F:\YilenaCode\Yilena-video-web\Y-common\src\main\java\com\yilena" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.yilena.service" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yilena.service.entity.po" />
+      <recent name="com.yilena.service.controller.user" />
+      <recent name="com.yilena.service.mq" />
+      <recent name="com.yilena.service.entity.dto" />
+      <recent name="com.yilena.service.entity.vo" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.MainApplication">
+    <configuration name="test.getID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Y-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yilena.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yilena.service" />
+      <option name="MAIN_CLASS_NAME" value="com.yilena.service.test" />
+      <option name="METHOD_NAME" value="getID" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Y-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yilena.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yilena.service" />
+      <option name="MAIN_CLASS_NAME" value="com.yilena.service.test" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="Y-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yilena.service.MainApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yilena.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.MainApplication" />
+        <item itemvalue="JUnit.test.getID" />
+        <item itemvalue="JUnit.test.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="09ca584b-52f9-4abb-9488-76c8c074efab" name="更改" comment="" />
+      <created>1737118325182</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1737118325182</updated>
+      <workItem from="1737118326440" duration="83000" />
+      <workItem from="1742465825148" duration="2375000" />
+      <workItem from="1742547208830" duration="61000" />
+      <workItem from="1742629610952" duration="29258000" />
+      <workItem from="1742712206026" duration="28126000" />
+      <workItem from="1742802181646" duration="20270000" />
+      <workItem from="1742911191772" duration="1646000" />
+      <workItem from="1742955648383" duration="21905000" />
+      <workItem from="1743071198704" duration="14008000" />
+      <workItem from="1743127615309" duration="31577000" />
+      <workItem from="1743213808296" duration="3217000" />
+      <workItem from="1743217295851" duration="1204000" />
+      <workItem from="1743220535948" duration="355000" />
+      <workItem from="1743234646860" duration="30326000" />
+      <workItem from="1743300528009" duration="2706000" />
+      <workItem from="1743303249252" duration="39754000" />
+      <workItem from="1743396333739" duration="1227000" />
+      <workItem from="1743410319981" duration="6613000" />
+      <workItem from="1743487043124" duration="1239000" />
+      <workItem from="1743562096375" duration="46000" />
+      <workItem from="1743767661401" duration="11825000" />
+      <workItem from="1743819855311" duration="13724000" />
+      <workItem from="1743860284261" duration="2340000" />
+      <workItem from="1743917085100" duration="11354000" />
+      <workItem from="1743988871730" duration="4311000" />
+      <workItem from="1744012668260" duration="9936000" />
+      <workItem from="1744095384463" duration="8695000" />
+      <workItem from="1744160783113" duration="8274000" />
+      <workItem from="1744278624652" duration="2531000" />
+      <workItem from="1744290119827" duration="6729000" />
+      <workItem from="1744336981015" duration="6000" />
+      <workItem from="1744437984480" duration="22977000" />
+      <workItem from="1744509980013" duration="18820000" />
+      <workItem from="1744557754994" duration="4926000" />
+      <workItem from="1744616038102" duration="5563000" />
+      <workItem from="1744637869557" duration="2085000" />
+      <workItem from="1744695154472" duration="21193000" />
+      <workItem from="1744769350239" duration="3825000" />
+      <workItem from="1744883053207" duration="11108000" />
+      <workItem from="1744941025898" duration="6261000" />
+      <workItem from="1744966732897" duration="3170000" />
+      <workItem from="1745045569937" duration="14324000" />
+      <workItem from="1745132147805" duration="18575000" />
+      <workItem from="1745220356913" duration="10144000" />
+      <workItem from="1745331463250" duration="6017000" />
+      <workItem from="1745372821643" duration="12249000" />
+      <workItem from="1745492497599" duration="13271000" />
+      <workItem from="1745546933770" duration="21787000" />
+      <workItem from="1745634705626" duration="22628000" />
+      <workItem from="1745740134125" duration="8319000" />
+      <workItem from="1745826370070" duration="11197000" />
+      <workItem from="1745932188231" duration="6124000" />
+      <workItem from="1746061755074" duration="15383000" />
+      <workItem from="1746148991708" duration="24571000" />
+      <workItem from="1746193507570" duration="8649000" />
+      <workItem from="1746239393467" duration="26296000" />
+      <workItem from="1746324614780" duration="19281000" />
+      <workItem from="1746356219700" duration="127000" />
+    </task>
+    <task id="LOCAL-00001" summary="2025/3/22——登录接口实现">
+      <option name="closed" value="true" />
+      <created>1742642106320</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742642106320</updated>
+    </task>
+    <task id="LOCAL-00002" summary="2025/3/22——登录接口实现">
+      <option name="closed" value="true" />
+      <created>1742642124807</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742642124807</updated>
+    </task>
+    <task id="LOCAL-00003" summary="2025/3/22——登录接口实现">
+      <option name="closed" value="true" />
+      <created>1742642421567</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742642421567</updated>
+    </task>
+    <task id="LOCAL-00004" summary="2025/3/22——登录接口实现">
+      <option name="closed" value="true" />
+      <created>1742642839529</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742642839529</updated>
+    </task>
+    <task id="LOCAL-00005" summary="2025/3/22——登录接口实现">
+      <option name="closed" value="true" />
+      <created>1742645747570</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742645747570</updated>
+    </task>
+    <task id="LOCAL-00006" summary="2025/3/22——登录接口实现">
+      <option name="closed" value="true" />
+      <created>1742646068436</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742646068436</updated>
+    </task>
+    <task id="LOCAL-00007" summary="2025/3/22——登录接口实现">
+      <option name="closed" value="true" />
+      <created>1742658049156</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1742658049156</updated>
+    </task>
+    <task id="LOCAL-00008" summary="2025/3/23——登录接口完善">
+      <option name="closed" value="true" />
+      <created>1742715557651</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1742715557651</updated>
+    </task>
+    <task id="LOCAL-00009" summary="2025/3/23——登录接口完善">
+      <option name="closed" value="true" />
+      <created>1742724325805</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1742724325805</updated>
+    </task>
+    <task id="LOCAL-00010" summary="2025/3/23——关注他人接口完成">
+      <option name="closed" value="true" />
+      <created>1742735090407</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1742735090407</updated>
+    </task>
+    <task id="LOCAL-00011" summary="2025/3/24">
+      <option name="closed" value="true" />
+      <created>1742806639842</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1742806639842</updated>
+    </task>
+    <task id="LOCAL-00012" summary="2025/3/24">
+      <option name="closed" value="true" />
+      <created>1742813363117</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1742813363117</updated>
+    </task>
+    <task id="LOCAL-00013" summary="2025/3/24">
+      <option name="closed" value="true" />
+      <created>1742828484958</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1742828484958</updated>
+    </task>
+    <task id="LOCAL-00014" summary="2025/3/24">
+      <option name="closed" value="true" />
+      <created>1742828490760</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1742828490760</updated>
+    </task>
+    <task id="LOCAL-00015" summary="2025/3/25">
+      <option name="closed" value="true" />
+      <created>1742917107864</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1742917107864</updated>
+    </task>
+    <task id="LOCAL-00016" summary="2025/3/25">
+      <option name="closed" value="true" />
+      <created>1742958058112</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1742958058112</updated>
+    </task>
+    <task id="LOCAL-00017" summary="2025/3/25——视频接口完成">
+      <option name="closed" value="true" />
+      <created>1742976317407</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1742976317407</updated>
+    </task>
+    <task id="LOCAL-00018" summary="2025/3/26——动态接口完成">
+      <option name="closed" value="true" />
+      <created>1743003754877</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1743003754877</updated>
+    </task>
+    <task id="LOCAL-00019" summary="2025/3/26——点赞接口完成">
+      <option name="closed" value="true" />
+      <created>1743006380392</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1743006380392</updated>
+    </task>
+    <task id="LOCAL-00020" summary="2025/3/28——收藏接口完成">
+      <option name="closed" value="true" />
+      <created>1743091946291</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1743091946291</updated>
+    </task>
+    <task id="LOCAL-00021" summary="2025/3/28——投币接口完成">
+      <option name="closed" value="true" />
+      <created>1743131412586</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1743131412586</updated>
+    </task>
+    <task id="LOCAL-00022" summary="2025/3/28——投币接口完成">
+      <option name="closed" value="true" />
+      <created>1743135652791</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1743135652791</updated>
+    </task>
+    <task id="LOCAL-00023" summary="2025/3/28——评论接口完成">
+      <option name="closed" value="true" />
+      <created>1743156537659</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1743156537659</updated>
+    </task>
+    <task id="LOCAL-00024" summary="2025/3/28——点赞接口todo完善">
+      <option name="closed" value="true" />
+      <created>1743157005205</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1743157005205</updated>
+    </task>
+    <task id="LOCAL-00025" summary="2025/3/28——投稿合集接口完善">
+      <option name="closed" value="true" />
+      <created>1743180650383</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1743180650383</updated>
+    </task>
+    <task id="LOCAL-00026" summary="2025/3/28——redis完善">
+      <option name="closed" value="true" />
+      <created>1743181077066</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1743181077066</updated>
+    </task>
+    <task id="LOCAL-00027" summary="2025/3/28——视频分类完善">
+      <option name="closed" value="true" />
+      <created>1743235361449</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1743235361449</updated>
+    </task>
+    <task id="LOCAL-00028" summary="2025/3/28——视频分类完善">
+      <option name="closed" value="true" />
+      <created>1743235408213</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1743235408213</updated>
+    </task>
+    <task id="LOCAL-00029" summary="2025/3/30——私信接口wanc">
+      <option name="closed" value="true" />
+      <created>1743310278271</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1743310278271</updated>
+    </task>
+    <task id="LOCAL-00030" summary="2025/3/30——私信接口完成">
+      <option name="closed" value="true" />
+      <created>1743310292640</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1743310292640</updated>
+    </task>
+    <task id="LOCAL-00031" summary="2025/3/30——用户、视频接口完善">
+      <option name="closed" value="true" />
+      <created>1743312837689</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1743312837689</updated>
+    </task>
+    <task id="LOCAL-00032" summary="2025/3/30——全部改用雪花算法">
+      <option name="closed" value="true" />
+      <created>1743332450968</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1743332450968</updated>
+    </task>
+    <task id="LOCAL-00033" summary="2025/3/30——全部改用雪花算法">
+      <option name="closed" value="true" />
+      <created>1743332488815</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1743332488815</updated>
+    </task>
+    <task id="LOCAL-00034" summary="2025/3/30——全部改用雪花算法">
+      <option name="closed" value="true" />
+      <created>1743332512030</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1743332512030</updated>
+    </task>
+    <task id="LOCAL-00035" summary="2025/3/30——全部改用雪花算法">
+      <option name="closed" value="true" />
+      <created>1743332939823</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1743332939823</updated>
+    </task>
+    <task id="LOCAL-00036" summary="2025/3/30——管理端接口完成">
+      <option name="closed" value="true" />
+      <created>1743348947154</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1743348947154</updated>
+    </task>
+    <task id="LOCAL-00037" summary="2025/4/5——前后端联调完善用户模块">
+      <option name="closed" value="true" />
+      <created>1743845655809</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1743845655810</updated>
+    </task>
+    <task id="LOCAL-00038" summary="2025/4/5——前后端联调完善用户模块">
+      <option name="closed" value="true" />
+      <created>1743850390978</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1743850390979</updated>
+    </task>
+    <task id="LOCAL-00039" summary="2025/4/10——前后端联调完善弹幕模块">
+      <option name="closed" value="true" />
+      <created>1744280419921</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1744280419921</updated>
+    </task>
+    <task id="LOCAL-00040" summary="2025/4/10——前后端联调完善弹幕模块">
+      <option name="closed" value="true" />
+      <created>1744290160077</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1744290160077</updated>
+    </task>
+    <task id="LOCAL-00041" summary="2025/4/15——前后端联调完善视频详细页面功能">
+      <option name="closed" value="true" />
+      <created>1744706712569</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1744706712569</updated>
+    </task>
+    <task id="LOCAL-00042" summary="2025/4/15——前后端联调完善搜索页面功能">
+      <option name="closed" value="true" />
+      <created>1745055279694</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1745055279694</updated>
+    </task>
+    <task id="LOCAL-00043" summary="2025/4/15——前后端联调完善投稿页面功能">
+      <option name="closed" value="true" />
+      <created>1745334947921</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1745334947921</updated>
+    </task>
+    <task id="LOCAL-00044" summary="2025/4/15——前后端联调完善个人页面功能">
+      <option name="closed" value="true" />
+      <created>1745771574583</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1745771574583</updated>
+    </task>
+    <task id="LOCAL-00045" summary="2025/4/15——前后端联调完善动态页面功能">
+      <option name="closed" value="true" />
+      <created>1746095435761</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1746095435761</updated>
+    </task>
+    <task id="LOCAL-00046" summary="2025/4/15——前后端联调完善私信页面功能">
+      <option name="closed" value="true" />
+      <created>1746281209933</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1746281209933</updated>
+    </task>
+    <task id="LOCAL-00047" summary="2025/4/15——前后端联调完善私信页面功能">
+      <option name="closed" value="true" />
+      <created>1746281296774</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1746281296774</updated>
+    </task>
+    <task id="LOCAL-00048" summary="2025/4/15——前后端联调完善历史记录页面功能">
+      <option name="closed" value="true" />
+      <created>1746351968932</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1746351968932</updated>
+    </task>
+    <task id="LOCAL-00049" summary="2025/5/4——添加日志记录功能">
+      <option name="closed" value="true" />
+      <created>1746353763357</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1746353763357</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2025/3/25——视频接口完成" />
+    <MESSAGE value="2025/3/26——动态接口完成" />
+    <MESSAGE value="2025/3/26——点赞接口完成" />
+    <MESSAGE value="2025/3/28——收藏接口完成" />
+    <MESSAGE value="2025/3/28——投币接口完成" />
+    <MESSAGE value="2025/3/28——评论接口完成" />
+    <MESSAGE value="2025/3/28——点赞接口todo完善" />
+    <MESSAGE value="2025/3/28——投稿合集接口完善" />
+    <MESSAGE value="2025/3/28——redis完善" />
+    <MESSAGE value="2025/3/28——视频分类完善" />
+    <MESSAGE value="2025/3/30——私信接口wanc" />
+    <MESSAGE value="2025/3/30——私信接口完成" />
+    <MESSAGE value="2025/3/30——用户、视频接口完善" />
+    <MESSAGE value="2025/3/30——全部改用雪花算法" />
+    <MESSAGE value="2025/3/30——管理端接口完成" />
+    <MESSAGE value="2025/4/5——前后端联调完善用户模块" />
+    <MESSAGE value="2025/4/10——前后端联调完善弹幕模块" />
+    <MESSAGE value="2025/4/15——前后端联调完善视频详细页面功能" />
+    <MESSAGE value="2025/4/15——前后端联调完善搜索页面功能" />
+    <MESSAGE value="2025/4/15——前后端联调完善投稿页面功能" />
+    <MESSAGE value="2025/4/15——前后端联调完善个人页面功能" />
+    <MESSAGE value="2025/4/15——前后端联调完善动态页面功能" />
+    <MESSAGE value="2025/4/15——前后端联调完善私信页面功能" />
+    <MESSAGE value="2025/4/15——前后端联调完善历史记录页面功能" />
+    <MESSAGE value="2025/5/4——添加日志记录功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025/5/4——添加日志记录功能" />
+  </component>
+</project>

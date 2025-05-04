@@ -1,0 +1,23 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE mapper-->
+<!--        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"-->
+<!--        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+<!--<mapper namespace="com.yilena.service.dao.SearchHistoryMapper">-->
+<!--    <insert id="addSearchHistory">-->
+<!--        insert into search_history(id,content, search_count, user_id, created_time)-->
+<!--        values(#{id},#{content}, #{searchCount}, #{userId}, #{createdTime})-->
+<!--    </insert>-->
+<!--    <update id="updateSearchHistory">-->
+<!--        update search_history-->
+<!--        set search_count = #{searchCount}-->
+<!--        where id = #{id}-->
+<!--    </update>-->
+
+<!--    <select id="getSearchHistory" resultType="com.yilena.service.entity.vo.SearchHistoryVO">-->
+<!--        select id, content, search_count as searchCount from search_history where user_id = #{id} order by search_count desc-->
+<!--    </select>-->
+<!--    <select id="getSearchHistoryByContentAndId" resultType="com.yilena.service.entity.po.SearchHistory">-->
+<!--        select id, content, search_count as searchCount, user_id as userId, created_time as createdTime-->
+<!--        from search_history where content = #{content} and user_id = #{userId}-->
+<!--    </select>-->
+<!--</mapper>-->
