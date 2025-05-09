@@ -19,4 +19,6 @@ public interface UserMapper {
     List<UserVO> getUserByIds(List<Long> ids, String username);
 
     void updateIsRecord(Long userId, Integer isRecord);
+
+    Long getTotalUser();
 }

@@ -155,7 +155,7 @@ public class UserServiceImpl implements UserService {
 
         User dbUser = userMapper.getUserById(user.getId());
         if(dbUser == null){
-            throw new RegisterException(UserConstant.USER_LOGIN_INEXIST_FAIL);
+            throw new RuntimeException(UserConstant.USER_LOGIN_INEXIST_FAIL);
         }
         // 删除redis缓存
         redisTemplate.delete("user::" + dbUser.getUsername());
@@ -163,10 +163,13 @@ public class UserServiceImpl implements UserService {
 
 
         if(user.getOldPassword() != null){
+            if(user.getOldPassword().equals(dbUser.getPassword())){
+                throw new RuntimeException(UserConstant.USER_PASSWORD_SAME_FAIL);
+            }
             if(passwordEncoder.matches(user.getOldPassword(), dbUser.getPassword())) {
                 user.setPassword(passwordEncoder.encode(user.getPassword()));
             }else{
-                throw new RegisterException(UserConstant.USER_PASSWORD_WRONG);
+                throw new RuntimeException(UserConstant.USER_PASSWORD_WRONG);
             }
         }else{
             // 密码为空，不修改

@@ -12,4 +12,6 @@ public interface LikeMapper {
     void undoLike(Like like);
 
     Like isLike(Like like);
+
+    Long getTotalLike();
 }

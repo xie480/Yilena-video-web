@@ -126,4 +126,7 @@
             #{id}
         </foreach>
     </select>
+    <select id="getTotalComment" resultType="java.lang.Long">
+        select count(id) from comment
+    </select>
 </mapper>

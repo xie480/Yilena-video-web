@@ -13,11 +13,7 @@ import java.util.stream.IntStream;
 @Service
 @AllArgsConstructor
 public class UserReportServiceImpl implements UserReportService {
-    private final FollowMapper followMapper;
-    private final LikeMapper likeMapper;
-    private final VideoFavoritesMapper videoFavoritesMapper;
-    private final CoinsMapper coinsMapper;
-    private final CommentMapper commentMapper;
+
     private final VideoMapper videoMapper;
 
     private static final Map<Integer, Integer> TYPE_DAYS = Map.of(

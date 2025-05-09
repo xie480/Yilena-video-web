@@ -52,4 +52,7 @@
             </foreach>
         </where>
     </select>
+    <select id="getTotalUser" resultType="java.lang.Long">
+        select count(id) from user
+    </select>
 </mapper>

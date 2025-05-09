@@ -18,8 +18,6 @@ public class UploadController {
 
     private final AliyunOSSOperator aliyunOSSOperator;
 
-
-    @LogOperation
     @PostMapping("/upload")
     public Result upload(MultipartFile file) throws Exception {
         // 记录文件上传日志

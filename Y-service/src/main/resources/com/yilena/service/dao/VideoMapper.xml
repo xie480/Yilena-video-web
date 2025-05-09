@@ -213,4 +213,37 @@
                            on v.user_id = #{userId} and c.user_id != #{userId}
         where c.created_time between #{beginDateTime} and #{endDateTime}
     </select>
+    <select id="getVideoCount" resultType="java.lang.Long">
+        select count(*) from video
+    </select>
+    <select id="getVideoByPage" resultType="com.yilena.service.entity.po.VideoPending">
+        select v.id, title, v.description, video_url as videoUrl, cover_url as coverUrl,
+               tags as tagsJson, barrages, views, likes, favorites, shares, v.coins, comments,
+               time, user_id as userId, collection_id as collectionId, visibility,
+               v.created_time as createdTime, v.updated_time as updatedTime,last_id as lastId,username
+        from video v
+        join user u
+        on v.user_id = u.id
+        <where>
+            <if test="title != null and title != '' ">
+                and title = #{title}
+            </if>
+            <if test="beginTime != null">
+                and v.created_time >= #{beginTime}
+            </if>
+            <if test="endTime != null">
+                and v.created_time &lt;= #{endTime}
+            </if>
+        </where>
+        order by v.updated_time desc
+    </select>
+    <select id="getAllVideoByUserId" resultType="com.yilena.service.entity.po.VideoPending">
+        select id, title, description, video_url as videoUrl, cover_url as coverUrl,
+               barrages, views, likes, favorites,
+               shares, coins, comments, time, user_id as userId,
+               visibility,created_time as createdTime, updated_time as updatedTime,sort,last_id as lastId
+        from video
+        where user_id = #{userId}
+        order by updated_time desc;
+    </select>
 </mapper>

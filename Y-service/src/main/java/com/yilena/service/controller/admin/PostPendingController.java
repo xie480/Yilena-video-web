@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/manager")
+@RequestMapping("/manager/post")
 public class PostPendingController {
     private final PostPendingService postPendingService;
 
-    @PutMapping("/post")
+    @PutMapping
     public Result updatePostPendingStatus(@RequestBody PostPendingDTO postPendingDTO){
         log.info("下架动态：{}", postPendingDTO);
         postPendingService.updatePostPendingStatus(postPendingDTO);

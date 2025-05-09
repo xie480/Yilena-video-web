@@ -13,6 +13,8 @@ public class Manager {
     private Integer id;
     private String username;
     private String password;
+    private String newPassword;
+    private String oldPassword;
     private Integer status;
     private LocalDateTime createdTime;
     private LocalDateTime updatedTime;

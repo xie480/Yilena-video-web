@@ -1,11 +1,14 @@
 package com.yilena.service.controller.admin;
 
+import com.yilena.service.constant.StatusConstant;
 import com.yilena.service.entity.Result;
 import com.yilena.service.entity.dto.VideoPendingDTO;
 import com.yilena.service.entity.dto.VideoPendingStatusDTO;
 import com.yilena.service.service.VideoPendingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -16,9 +19,10 @@ public class VideoPendingController {
 
     private final VideoPendingService videoPendingService;
 
+    @Cacheable(value = "videoPage",key = "#videoPendingDTO.status + ':' + #videoPendingDTO.pageSize + ':' + #videoPendingDTO.page")
     @GetMapping("/page")
-    public Result getVideoPendingByPage(VideoPendingDTO videoPendingDTO){
-        log.info("分页查询待审核视频");
+    public Result getVideoPendingByPageWhichWait(VideoPendingDTO videoPendingDTO){
+        log.info("分页查询视频");
         return Result.success(videoPendingService.getVideoPendingByPage(videoPendingDTO));
     }
 
@@ -28,6 +32,7 @@ public class VideoPendingController {
         return Result.success(videoPendingService.getVideoPendingById(id));
     }
 
+    @CacheEvict(value = "videoPage")
     @PutMapping("/status")
     public Result updateVideoPendingStatus(@RequestBody VideoPendingStatusDTO videoPendingStatusDTO){
         log.info("更新待审核视频状态");
@@ -35,6 +40,7 @@ public class VideoPendingController {
         return Result.success();
     }
 
+    @CacheEvict(value = "videoPage")
     @PutMapping("/video")
     public Result updateVideoPendingFromVideo(@RequestBody VideoPendingStatusDTO videoPendingStatusDTO){
         log.info("下架视频");

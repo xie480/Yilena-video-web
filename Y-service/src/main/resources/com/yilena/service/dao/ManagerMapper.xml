@@ -13,9 +13,23 @@
         </set>
         where id = #{id}
     </update>
+    <update id="updatePassword">
+        update manager
+        <set>
+            <if test="newPassword != null">
+                password = #{newPassword},
+            </if>
+            updated_time = now()
+        </set>
+        where id = #{id}
+    </update>
 
     <select id="getByUsername" resultType="com.yilena.service.entity.po.Manager">
         select id, username, password, status, created_time as createdTime, updated_time as updatedTime
         from manager where username = #{username}
+    </select>
+    <select id="getManagerById" resultType="com.yilena.service.entity.po.Manager">
+        select id, username, password, status, created_time as createdTime, updated_time as updatedTime
+        from manager where id = #{id}
     </select>
 </mapper>

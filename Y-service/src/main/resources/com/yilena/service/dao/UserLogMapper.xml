@@ -2,10 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yilena.service.dao.LogMapper">
+<mapper namespace="com.yilena.service.dao.UserLogMapper">
 
     <insert id="addLog">
-        insert into log(id, operateUserId,className, methodName, methodParams, returnValue, costTime, operateTime)
+        insert into log_user(id, operateUserId,className, methodName, methodParams, returnValue, costTime, operateTime)
         values (#{id}, #{operateUserId}, #{className}, #{methodName}, #{methodParams}, #{returnValue}, #{costTime}, #{operateTime})
     </insert>
 </mapper>

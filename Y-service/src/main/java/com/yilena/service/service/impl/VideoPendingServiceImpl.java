@@ -43,7 +43,12 @@ public class VideoPendingServiceImpl implements VideoPendingService{
     @Override
     public PageResult<VideoPending> getVideoPendingByPage(VideoPendingDTO videoPendingDTO) {
         PageHelper.startPage(videoPendingDTO.getPage(),videoPendingDTO.getPageSize());
-        List<VideoPending> videoPendings = videoPendingMapper.getVideoPendingByPage(videoPendingDTO);
+        List<VideoPending> videoPendings = null;
+        if(!Objects.equals(videoPendingDTO.getStatus(), StatusConstant.STATUS_YES)) {
+             videoPendings = videoPendingMapper.getVideoPendingByPage(videoPendingDTO);
+        }else{
+            videoPendings = videoMapper.getVideoByPage(videoPendingDTO);
+        }
         videoPendings.forEach(videoPending -> {
             String tgsJson = videoPending.getTagsJson();
             List<String> tags = JSON.parseArray(tgsJson, String.class);
@@ -69,13 +74,13 @@ public class VideoPendingServiceImpl implements VideoPendingService{
     @Override
     public void updateVideoPendingStatus(VideoPendingStatusDTO videoPendingStatusDTO) {
         VideoPending videoPending = videoPendingMapper.getVideoPendingById(videoPendingStatusDTO.getId());
-        videoPending.setVisibility(videoPendingStatusDTO.getStatus());
+        videoPending.setStatus(videoPendingStatusDTO.getStatus());
         if(videoPendingStatusDTO.getReason() != null){
             videoPending.setReason(videoPendingStatusDTO.getReason());
         }
         videoPendingMapper.updateVideoPending(videoPending);
 
-        if(Objects.equals(videoPending.getVisibility(), StatusConstant.STATUS_YES)) {
+        if(Objects.equals(videoPending.getStatus(), StatusConstant.STATUS_YES)) {
             // 添加到视频表
             Video video = new Video();
             BeanUtils.copyProperties(videoPending, video);
@@ -123,7 +128,7 @@ public class VideoPendingServiceImpl implements VideoPendingService{
 
             String json = JSON.toJSONString(chatMessage);
             chatEndpoint.sendMessage(json);
-        }else if(Objects.equals(videoPending.getVisibility(), StatusConstant.STATUS_NO)){
+        }else if(Objects.equals(videoPending.getStatus(), StatusConstant.STATUS_NO)){
 
             // 发送私信通知
             ChatMessage chatMessage = new ChatMessage();
@@ -146,8 +151,16 @@ public class VideoPendingServiceImpl implements VideoPendingService{
     @Override
     public void updateVideoPendingFromVideo(VideoPendingStatusDTO videoPendingStatusDTO) {
         Video video = videoMapper.getVideoById(videoPendingStatusDTO.getId());
-        video.setVisibility(videoPendingStatusDTO.getStatus());
-        videoMapper.updateVideo(video);
+        VideoPending videoPending = new VideoPending();
+        BeanUtils.copyProperties(video,videoPending);
+
+        // 迁移到审核表
+        videoPending.setStatus(StatusConstant.STATUS_NO);
+        videoPending.setReason(videoPendingStatusDTO.getReason());
+        videoPending.setLastId(video.getId());
+        video.setId(snowFlake.getID());
+        videoPendingMapper.addVideoPendingWhichNoPass(videoPending);
+        videoMapper.deleteVideo(videoPendingStatusDTO.getId());
 
         // 发送私信通知
         ChatMessage chatMessage = new ChatMessage();
@@ -167,7 +180,11 @@ public class VideoPendingServiceImpl implements VideoPendingService{
 
     @Override
     public List<VideoPending> getVideoPendingByStatus(Long userId, Integer status) {
-        return videoPendingMapper.getVideoPendingByStatus(userId, status);
+        if(!Objects.equals(status, StatusConstant.STATUS_YES)) {
+            return videoPendingMapper.getVideoPendingByStatus(userId, status);
+        }else{
+            return videoMapper.getAllVideoByUserId(userId);
+        }
     }
 
     @Override

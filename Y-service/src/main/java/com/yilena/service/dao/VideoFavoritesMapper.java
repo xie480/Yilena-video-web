@@ -12,4 +12,6 @@ public interface VideoFavoritesMapper {
     void deleteVideoFavorites(VideoFavorites videoFavorites);
 
     VideoFavorites isFavoritesFolder(Long videoId, Long userId);
+
+    Long getTotalFavorite();
 }
