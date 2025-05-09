@@ -3,7 +3,7 @@
 </script>
 
 <template>
- <span>首页</span>
+ <span>日志</span>
 </template>
 
 <style scoped>

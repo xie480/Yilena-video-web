@@ -12,7 +12,7 @@
     
     request.interceptors.request.use(
       config => {
-        const result = JSON.parse(localStorage.getItem('loginUser'));
+        const result = JSON.parse(localStorage.getItem('loginManager'));
         if (result && result.token) {
           config.headers.token = result.token;
         }
