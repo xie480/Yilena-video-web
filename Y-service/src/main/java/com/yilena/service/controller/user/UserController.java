@@ -48,7 +48,6 @@ public class UserController {
         return Result.success();
     }
 
-    @Transactional
     @GetMapping("/search/page")
     @CacheEvict(value = "searchHistory", key = "'page'")
     public Result getUserByPage(UserDTO userDTO){

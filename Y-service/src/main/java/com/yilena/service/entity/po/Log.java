@@ -17,5 +17,5 @@ public class Log {
     private String methodName;
     private String methodParams;
     private String returnValue;
-    private Long costTime;
+    private double costTime;
 }

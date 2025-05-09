@@ -1,5 +1,7 @@
 package com.yilena.service.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.yilena.service.constant.*;
 import com.yilena.service.dao.FavoritesFolderMapper;
 import com.yilena.service.dao.UserMapper;
@@ -7,6 +9,7 @@ import com.yilena.service.dao.VideoCollectionMapper;
 import com.yilena.service.entity.LoginInfo;
 import com.yilena.service.entity.PageResult;
 import com.yilena.service.entity.dto.UserDTO;
+import com.yilena.service.entity.dto.UserPendingPageQueryDTO;
 import com.yilena.service.entity.dto.UserPendingStatusDTO;
 import com.yilena.service.entity.po.FavoritesFolder;
 import com.yilena.service.entity.po.User;
@@ -27,6 +30,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -155,7 +159,7 @@ public class UserServiceImpl implements UserService {
 
         User dbUser = userMapper.getUserById(user.getId());
         if(dbUser == null){
-            throw new RegisterException(UserConstant.USER_LOGIN_INEXIST_FAIL);
+            throw new RuntimeException(UserConstant.USER_LOGIN_INEXIST_FAIL);
         }
         // 删除redis缓存
         redisTemplate.delete("user::" + dbUser.getUsername());
@@ -163,10 +167,13 @@ public class UserServiceImpl implements UserService {
 
 
         if(user.getOldPassword() != null){
+            if(user.getOldPassword().equals(dbUser.getPassword())){
+                throw new RuntimeException(UserConstant.USER_PASSWORD_SAME_FAIL);
+            }
             if(passwordEncoder.matches(user.getOldPassword(), dbUser.getPassword())) {
                 user.setPassword(passwordEncoder.encode(user.getPassword()));
             }else{
-                throw new RegisterException(UserConstant.USER_PASSWORD_WRONG);
+                throw new RuntimeException(UserConstant.USER_PASSWORD_WRONG);
             }
         }else{
             // 密码为空，不修改
@@ -219,5 +226,13 @@ public class UserServiceImpl implements UserService {
         Map<String, Object> claims = Map.of("id",dbUser.getId(),"username", dbUser.getUsername());
         String jwt = JwtUtils.generateToken(claims);
         return new LoginInfo(dbUser.getUsername(), dbUser.getPassword(), jwt);
+    }
+
+    @Override
+    public PageResult<User> getUserPendingByPage(UserPendingPageQueryDTO userPendingPageQueryDTO) {
+        PageHelper.startPage(userPendingPageQueryDTO.getPage(), userPendingPageQueryDTO.getPageSize());
+        List<User> users = userMapper.getUserPendingByPage(userPendingPageQueryDTO);
+        Page<User> p = (Page<User>) users;
+        return new PageResult<>(p.getTotal(),p.getResult());
     }
 }

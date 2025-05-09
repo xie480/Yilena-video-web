@@ -14,5 +14,8 @@
     <select id="isLike" resultType="com.yilena.service.entity.po.Like">
         select * from likes where entity_id = #{entityId} and entity_type = #{entityType} and user_id = #{userId}
     </select>
+    <select id="getTotalLike" resultType="java.lang.Long">
+        select count(id) from likes
+    </select>
 
 </mapper>

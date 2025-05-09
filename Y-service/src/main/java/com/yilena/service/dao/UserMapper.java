@@ -1,5 +1,6 @@
 package com.yilena.service.dao;
 
+import com.yilena.service.entity.dto.UserPendingPageQueryDTO;
 import com.yilena.service.entity.po.User;
 import com.yilena.service.entity.vo.UserVO;
 import org.apache.ibatis.annotations.Mapper;
@@ -19,4 +20,8 @@ public interface UserMapper {
     List<UserVO> getUserByIds(List<Long> ids, String username);
 
     void updateIsRecord(Long userId, Integer isRecord);
+
+    Long getTotalUser();
+
+    List<User> getUserPendingByPage(UserPendingPageQueryDTO userPendingPageQueryDTO);
 }

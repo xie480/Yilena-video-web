@@ -12,4 +12,5 @@ public class UserConstant {
     public static final String USER_CAN_NOT_LOGIN = "用户已被冻结！无法登录！";
     public static final String USER_CAN_NOT_DO_ANYTHING = "用户已被冻结！";
     public static final String USER_PASSWORD_WRONG = "原密码错误！请重新输入！";
+    public static final String USER_PASSWORD_SAME_FAIL = "两次密码一致！";
 }

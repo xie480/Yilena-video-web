@@ -27,7 +27,7 @@ public class ElasticsearchConfig {
         try {
             if (client != null) {
                 client.close();
-                System.out.println("Elasticsearch client closed");
+                log.info("ES连接已关闭");
             }
         } catch (IOException e) {
             e.printStackTrace();

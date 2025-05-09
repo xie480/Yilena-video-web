@@ -52,4 +52,28 @@
             </foreach>
         </where>
     </select>
+    <select id="getTotalUser" resultType="java.lang.Long">
+        select count(id) from user
+    </select>
+    <select id="getUserPendingByPage" resultType="com.yilena.service.entity.po.User">
+        select id, username,  image, description,
+            following_count as followingCount, followers_count as followersCount,
+            post_count as postCount, video_count as videoCount, coins, status, reason,
+            is_record as isRecord, created_time as createdTime, updated_time as updatedTime
+        from user
+        <where>
+        <if test="username != null and username != ''">
+            and username like concat('%',#{username},'%')
+        </if>
+        <if test="status != null">
+            and status = #{status}
+        </if>
+        <if test="beginTime != null">
+            and created_time &gt;= #{beginTime}
+        </if>
+        <if test="endTime != null">
+            and created_time &lt;= #{endTime}
+        </if>
+        </where>
+    </select>
 </mapper>

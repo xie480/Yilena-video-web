@@ -97,4 +97,7 @@
         where p.visibility = 1 and p.user_id =  #{userId}
         order by p.created_time desc
     </select>
+    <select id="getTotalPost" resultType="java.lang.Long">
+        select count(id) from post
+    </select>
 </mapper>

@@ -1,7 +1,9 @@
 package com.yilena.service.dao;
 
 import com.yilena.service.entity.PageResult;
+import com.yilena.service.entity.dto.VideoPendingDTO;
 import com.yilena.service.entity.po.Video;
+import com.yilena.service.entity.po.VideoPending;
 import com.yilena.service.entity.vo.VideoVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -58,4 +60,10 @@ public interface VideoMapper {
     Integer getCoinFromReportCount(Long userId, LocalDateTime beginDateTime, LocalDateTime endDateTime);
 
     Integer getCommentFromReportCount(Long userId, LocalDateTime beginDateTime, LocalDateTime endDateTime);
+
+    Long getVideoCount();
+
+    List<VideoPending> getVideoByPage(VideoPendingDTO videoPendingDTO);
+
+    List<VideoPending> getAllVideoByUserId(Long userId);
 }

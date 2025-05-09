@@ -40,7 +40,7 @@ public class ManagerServiceImpl implements ManagerService {
                 // 生成jwt令牌
                 Map<String, Object> claims = Map.of("id", dbManager.getId(),"username", dbManager.getUsername());
                 String jwt = JwtUtils.generateToken(claims);
-                return new LoginInfo(dbManager.getUsername(), dbManager.getPassword(), jwt);
+                return new LoginInfo(dbManager.getUsername(),null, jwt);
             } else {
                 throw new LoginException(UserConstant.USER_LOGIN_FAIL);
             }
@@ -50,5 +50,31 @@ public class ManagerServiceImpl implements ManagerService {
     @Override
     public void updateStatus(Integer status, Integer id) {
         managerMapper.updateStatus(status, id);
+    }
+
+    @Override
+    public Manager getManagerById(Integer id) {
+        return managerMapper.getManagerById(id);
+    }
+
+    @Override
+    public void updatePassword(Manager manager) {
+        Manager dbManager = managerMapper.getManagerById(manager.getId());
+        if(dbManager == null){
+            throw new LoginException(UserConstant.USER_LOGIN_INEXIST_FAIL);
+        }
+        if(manager.getNewPassword().equals(dbManager.getPassword())){
+            throw new LoginException(UserConstant.USER_PASSWORD_SAME_FAIL);
+        }
+        if(manager.getOldPassword().equals(dbManager.getPassword())){
+            managerMapper.updatePassword(manager);
+        } else {
+            throw new LoginException(UserConstant.USER_PASSWORD_WRONG);
+        }
+    }
+
+    @Override
+    public Manager getByUsername(String username) {
+        return managerMapper.getByUsername(username);
     }
 }

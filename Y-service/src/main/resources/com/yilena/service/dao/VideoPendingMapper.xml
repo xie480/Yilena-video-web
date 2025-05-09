@@ -42,7 +42,6 @@
             <if test="reason != null">
                 reason = #{reason},
             </if>
-            updated_time = #{updatedTime}
         </set>
         where id = #{id}
     </update>
@@ -52,30 +51,29 @@
         where id = #{id}
     </delete>
     <select id="getVideoPendingByPage" resultType="com.yilena.service.entity.po.VideoPending">
-        select id, title, description,
+        select vp.id, title, vp.description,
                 video_url as videoUrl, cover_url as coverUrl,sort,
-                tags as tagsJson, barrages, views, likes, favorites, shares, coins,
+                tags as tagsJson, barrages, views, likes, favorites, shares, vp.coins,
                 comments, time, user_id as userId, collection_id as collectionId,
-                visibility, created_time as createdTime, updated_time as updatedTime,last_id as lastId, status,reason
-        from video_pending
+                visibility, vp.created_time as createdTime, vp.updated_time as updatedTime,last_id as lastId, vp.status,vp.reason,username
+        from video_pending vp
+        join user u
+        on vp.user_id = u.id
         <where>
-            <if test="id != null">
-                 id = #{id}
-            </if>
             <if test="title != null and title != '' ">
-                and title = #{title}
-            </if>
-            <if test="userId != null">
-                and user_id = #{userId}
+                and title like concat('%',#{title},'%')
             </if>
             <if test="beginTime != null">
-                and created_time >= #{beginTime}
+                and vp.created_time >= #{beginTime}
             </if>
             <if test="endTime != null">
-                and created_time &lt;= #{endTime}
+                and vp.created_time &lt;= #{endTime}
+            </if>
+            <if  test="status != null">
+                and vp.status = #{status}
             </if>
         </where>
-        order by updated_time desc
+        order by vp.updated_time desc
     </select>
     <select id="getVideoPendingById" resultType="com.yilena.service.entity.po.VideoPending">
         select id, title, description,
@@ -94,6 +92,10 @@
                 visibility, created_time as createdTime, updated_time as updatedTime,last_id as lastId,status,reason
         from video_pending
         where user_id = #{userId} and status = #{status}
+        order by updated_time desc
+    </select>
+    <select id="getVideoCountByStatus" resultType="java.lang.Long">
+        select count(*) from video_pending where status = #{status}
     </select>
 
     <insert id="addVideoPending">
@@ -102,6 +104,14 @@
                                   created_time, updated_time,sort,time,last_id,status)
         values(#{id},#{title}, #{description},#{barrages}, #{videoUrl}, #{coverUrl}, #{tagsJson}, #{views},
                #{likes}, #{favorites}, #{shares}, #{coins}, #{comments}, #{userId}, #{collectionId},
-               #{visibility}, #{createdTime}, #{updatedTime},#{sort},#{time},#{lastId},3)
+               #{visibility}, #{createdTime}, #{updatedTime},#{sort},#{time},#{lastId},2)
+    </insert>
+    <insert id="addVideoPendingWhichNoPass">
+        insert into video_pending(id,title, description,barrages, video_url, cover_url, tags, views, likes,
+                                  favorites, shares, coins, comments, user_id, collection_id, visibility,
+                                  created_time, updated_time,sort,time,last_id,status,reason)
+        values(#{id},#{title}, #{description},#{barrages}, #{videoUrl}, #{coverUrl}, #{tagsJson}, #{views},
+               #{likes}, #{favorites}, #{shares}, #{coins}, #{comments}, #{userId}, #{collectionId},
+               #{visibility}, #{createdTime}, #{updatedTime},#{sort},#{time},#{lastId},#{status},#{reason})
     </insert>
 </mapper>

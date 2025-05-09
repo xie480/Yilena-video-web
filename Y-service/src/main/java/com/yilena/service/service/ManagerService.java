@@ -7,4 +7,10 @@ public interface ManagerService {
     LoginInfo login(Manager manager);
 
     void updateStatus(Integer status, Integer id);
+
+    Manager getManagerById(Integer id);
+
+    void updatePassword(Manager manager);
+
+    Manager getByUsername(String username);
 }

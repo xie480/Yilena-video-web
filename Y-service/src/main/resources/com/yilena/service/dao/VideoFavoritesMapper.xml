@@ -15,4 +15,7 @@
         select id, video_id as videoId, folder_id as folderId, user_id as userId, created_time as createdTime, updated_time as updatedTime
         from video_favorites where video_id = #{videoId} and user_id = #{userId}
     </select>
+    <select id="getTotalFavorite" resultType="java.lang.Long">
+        select count(id) from video_favorites
+    </select>
 </mapper>

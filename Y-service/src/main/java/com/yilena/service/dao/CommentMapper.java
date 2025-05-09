@@ -34,4 +34,6 @@ public interface CommentMapper {
     List<Comment> getCommentByIds(List<Long> ids);
 
     void deleteCommentByIds(List<Long> ids);
+
+    Long getTotalComment();
 }

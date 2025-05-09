@@ -21,4 +21,6 @@ public interface PostMapper {
     List<PostVO> getMyPost(Long userId);
 
     List<PostVO> getPostByUserId(Long userId);
+
+    Long getTotalPost();
 }

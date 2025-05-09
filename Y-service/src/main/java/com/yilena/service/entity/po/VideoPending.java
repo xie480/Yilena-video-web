@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VideoPending {
+public class VideoPending implements Serializable {
     private Long id;
     private Long lastId;
     private String title;
@@ -42,6 +43,7 @@ public class VideoPending {
     private LocalDateTime createdTime;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedTime;
+    private String username;
     // 唯一标识
     private String symbol;
 }

@@ -20,4 +20,8 @@ public interface VideoPendingMapper {
     VideoPending getVideoPendingById(Long id);
 
     List<VideoPending> getVideoPendingByStatus(Long userId, Integer status);
+
+    Long getVideoCountByStatus(Integer status);
+
+    void addVideoPendingWhichNoPass(VideoPending videoPending);
 }

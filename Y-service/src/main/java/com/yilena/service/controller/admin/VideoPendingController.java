@@ -1,11 +1,14 @@
 package com.yilena.service.controller.admin;
 
+import com.yilena.service.constant.StatusConstant;
 import com.yilena.service.entity.Result;
 import com.yilena.service.entity.dto.VideoPendingDTO;
 import com.yilena.service.entity.dto.VideoPendingStatusDTO;
 import com.yilena.service.service.VideoPendingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -17,8 +20,8 @@ public class VideoPendingController {
     private final VideoPendingService videoPendingService;
 
     @GetMapping("/page")
-    public Result getVideoPendingByPage(VideoPendingDTO videoPendingDTO){
-        log.info("分页查询待审核视频");
+    public Result getVideoPendingByPageWhichWait(VideoPendingDTO videoPendingDTO){
+        log.info("分页查询视频");
         return Result.success(videoPendingService.getVideoPendingByPage(videoPendingDTO));
     }
 
