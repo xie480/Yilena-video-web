@@ -76,4 +76,9 @@
         </if>
         </where>
     </select>
+    <select id="getUserReport" resultType="java.lang.Integer">
+        select count(*)
+        from user
+        where created_time between #{beginDateTime} and #{endDateTime}
+    </select>
 </mapper>

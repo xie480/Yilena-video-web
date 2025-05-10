@@ -118,4 +118,9 @@
         </where>
         order by p.created_time desc
     </select>
+    <select id="getPostUploadReport" resultType="java.lang.Integer">
+        select count(*)
+        from post
+        where created_time between #{beginDateTime} and #{endDateTime}
+    </select>
 </mapper>

@@ -66,4 +66,6 @@ public interface VideoMapper {
     List<VideoPending> getVideoByPage(VideoPendingDTO videoPendingDTO);
 
     List<VideoPending> getAllVideoByUserId(Long userId);
+
+    Integer getVideoUploadReport(LocalDateTime beginDateTime, LocalDateTime endDateTime);
 }

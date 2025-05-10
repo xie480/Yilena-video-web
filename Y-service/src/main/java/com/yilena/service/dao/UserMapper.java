@@ -5,6 +5,7 @@ import com.yilena.service.entity.po.User;
 import com.yilena.service.entity.vo.UserVO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Mapper
@@ -24,4 +25,6 @@ public interface UserMapper {
     Long getTotalUser();
 
     List<User> getUserPendingByPage(UserPendingPageQueryDTO userPendingPageQueryDTO);
+
+    Integer getUserReport(LocalDateTime beginDateTime, LocalDateTime endDateTime);
 }

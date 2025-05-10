@@ -5,6 +5,7 @@ import com.yilena.service.entity.po.Post;
 import com.yilena.service.entity.vo.PostVO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Mapper
@@ -26,4 +27,6 @@ public interface PostMapper {
     Long getTotalPost();
 
     List<PostVO> getPostPendingByPage(PostPendingPageQueryDTO postPendingPageQueryDTO);
+
+    Integer getPostUploadReport(LocalDateTime beginDateTime, LocalDateTime endDateTime);
 }

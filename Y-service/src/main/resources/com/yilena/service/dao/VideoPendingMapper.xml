@@ -97,6 +97,10 @@
     <select id="getVideoCountByStatus" resultType="java.lang.Long">
         select count(*) from video_pending where status = #{status}
     </select>
+    <select id="getVideoUndoReport" resultType="java.lang.Integer">
+        select count(*) from video_pending
+        where status = 0 and updated_time between #{beginDateTime} and #{endDateTime}
+    </select>
 
     <insert id="addVideoPending">
         insert into video_pending(id,title, description,barrages, video_url, cover_url, tags, views, likes,

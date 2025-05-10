@@ -246,4 +246,9 @@
         where user_id = #{userId}
         order by updated_time desc;
     </select>
+    <select id="getVideoUploadReport" resultType="java.lang.Integer">
+        select count(*)
+        from video
+        where created_time between #{beginDateTime} and #{endDateTime}
+    </select>
 </mapper>

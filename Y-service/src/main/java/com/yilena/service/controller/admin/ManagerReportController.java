@@ -5,6 +5,7 @@ import com.yilena.service.service.ManagerReportService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -50,5 +51,29 @@ public class ManagerReportController {
     public Result getTotalFavorite() {
         log.info("管理员获取收藏总数");
         return Result.success(managerReportService.getTotalFavorite());
+    }
+
+    @GetMapping("/video/do/{type}")
+    public Result getVideoUploadReport(@PathVariable Integer type){
+        log.info("获取上传视频数据");
+        return Result.success(managerReportService.getVideoUploadReport(type));
+    }
+
+    @GetMapping("/post/do/{type}")
+    public Result getPostUploadReport(@PathVariable Integer type){
+        log.info("获取上传动态数据");
+        return Result.success(managerReportService.getPostUploadReport(type));
+    }
+
+    @GetMapping("/user/{type}")
+    public Result getUserReport(@PathVariable Integer type){
+        log.info("获取注册用户数据");
+        return Result.success(managerReportService.getUserReport(type));
+    }
+
+    @GetMapping("/video/undo/{type}")
+    public Result getVideoUndoReport(@PathVariable Integer type){
+        log.info("获取下架视频数据");
+        return Result.success(managerReportService.getVideoUndoReport(type));
     }
 }

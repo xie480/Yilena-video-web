@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09ca584b-52f9-4abb-9488-76c8c074efab" name="更改" comment="2025/5/10——管理端动态审核、用户管理、管理员管理前后端联调完成">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b8e7cd75-4e1f-42ee-82b8-3081cb03b5ee.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b8e7cd75-4e1f-42ee-82b8-3081cb03b5ee.xml" afterDir="false" />
+    <list default="true" id="09ca584b-52f9-4abb-9488-76c8c074efab" name="更改" comment="2025/5/10——管理端日志管理前后端联调完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/LogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/ManagerLogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/ManagerLogMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/UserLogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/UserLogMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/LogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/LogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/LogServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/ManagerLogMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/ManagerLogMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/UserLogMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/UserLogMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/ManagerReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/ManagerReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/PostMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/VideoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/VideoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/VideoPendingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/VideoPendingMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/ManagerReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/ManagerReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/ManagerReportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/ManagerReportServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/PostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/PostMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/VideoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/VideoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/VideoPendingMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/VideoPendingMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,11 +136,11 @@
       <recent name="com.yilena.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yilena.service.task" />
       <recent name="com.yilena.service.entity.po" />
       <recent name="com.yilena.service.controller.user" />
       <recent name="com.yilena.service.mq" />
       <recent name="com.yilena.service.entity.dto" />
-      <recent name="com.yilena.service.entity.vo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -283,15 +286,7 @@
       <workItem from="1746714627272" duration="5680000" />
       <workItem from="1746754634687" duration="7513000" />
       <workItem from="1746784726713" duration="17242000" />
-      <workItem from="1746841856538" duration="16065000" />
-    </task>
-    <task id="LOCAL-00008" summary="2025/3/23——登录接口完善">
-      <option name="closed" value="true" />
-      <created>1742715557651</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1742715557651</updated>
+      <workItem from="1746841856538" duration="20793000" />
     </task>
     <task id="LOCAL-00009" summary="2025/3/23——登录接口完善">
       <option name="closed" value="true" />
@@ -677,7 +672,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746883796141</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="2025/5/10——管理端日志管理前后端联调完成">
+      <option name="closed" value="true" />
+      <created>1746885349271</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1746885349271</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -695,7 +698,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2025/3/28——收藏接口完成" />
     <MESSAGE value="2025/3/28——投币接口完成" />
     <MESSAGE value="2025/3/28——评论接口完成" />
     <MESSAGE value="2025/3/28——点赞接口todo完善" />
@@ -720,6 +722,7 @@
     <MESSAGE value="Merge remote-tracking branch 'YVW/master' into back-core&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Y-service/src/main/java/com/yilena/service/dao/UserMapper.java&#10;#&#9;Y-service/src/main/resources/com/yilena/service/dao/UserMapper.xml&#10;#&#9;Y-service/src/main/resources/com/yilena/service/dao/VideoMapper.xml&#10;#&#9;Y-service/src/main/resources/com/yilena/service/dao/VideoPendingMapper.xml" />
     <MESSAGE value="2025/5/9——管理端登录、首页以及视频审核前后端联调完成" />
     <MESSAGE value="2025/5/10——管理端动态审核、用户管理、管理员管理前后端联调完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025/5/10——管理端动态审核、用户管理、管理员管理前后端联调完成" />
+    <MESSAGE value="2025/5/10——管理端日志管理前后端联调完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025/5/10——管理端日志管理前后端联调完成" />
   </component>
 </project>

@@ -5,6 +5,7 @@ import com.yilena.service.entity.po.Video;
 import com.yilena.service.entity.po.VideoPending;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Mapper
@@ -24,4 +25,6 @@ public interface VideoPendingMapper {
     Long getVideoCountByStatus(Integer status);
 
     void addVideoPendingWhichNoPass(VideoPending videoPending);
+
+    Integer getVideoUndoReport(LocalDateTime beginDateTime, LocalDateTime endDateTime);
 }
