@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -69,6 +70,10 @@ public class UserController {
         return Result.success(userService.getUserByUsername(username));
     }
 
+    @Caching(evict = {
+            @CacheEvict(value = "user", key = "#user.id"),
+            @CacheEvict(value = "user", key = "#user.username")
+    })
     @LogOperation
     @PutMapping
     public Result updateUserById(@RequestBody User user){

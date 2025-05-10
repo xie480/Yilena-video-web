@@ -6,6 +6,8 @@ import com.yilena.service.log.LogOperation;
 import com.yilena.service.service.VideoPendingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -16,12 +18,14 @@ public class UserVideoPendingController {
 
     private final VideoPendingService videoPendingService;
 
+    @Cacheable(value = "videoPendings", key = "#userId + ':' + #status")
     @GetMapping("/list/{userId}/{status}")
     public Result getVideoPendingByStatus(@PathVariable Long userId,@PathVariable Integer status){
         log.info("用户{}查询视频审核状态为{}的视频", userId, status);
         return Result.success(videoPendingService.getVideoPendingByStatus(userId, status));
     }
 
+    @CacheEvict(value = {"videoPendings","videoPending"}, allEntries = true)
     @LogOperation
     @PutMapping
     public Result updateVideoPending(@RequestBody VideoPending videoPending){
@@ -30,6 +34,7 @@ public class UserVideoPendingController {
         return Result.success();
     }
 
+    @CacheEvict(value = {"videoPendings","videoPending"}, allEntries = true)
     @DeleteMapping("/{id}")
     public Result deleteVideoPending(@PathVariable Long id) {
         log.info("用户{}删除审核视频", id);
@@ -37,6 +42,7 @@ public class UserVideoPendingController {
         return Result.success();
     }
 
+    @CacheEvict(value = {"videoPendings","videoPending"}, allEntries = true)
     @LogOperation
     @PutMapping("/reupload/{id}")
     public Result reuploadVideoPending(@PathVariable Long id) {
@@ -45,6 +51,7 @@ public class UserVideoPendingController {
         return Result.success();
     }
 
+    @Cacheable(value = "videoPending", key = "#id")
     @GetMapping("/get/{id}")
     public Result getVideoPendingById(@PathVariable Long id) {
         log.info("用户{}获取审核视频", id);

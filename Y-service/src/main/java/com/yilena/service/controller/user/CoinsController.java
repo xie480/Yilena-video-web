@@ -5,6 +5,8 @@ import com.yilena.service.entity.po.VideoCoins;
 import com.yilena.service.service.CoinsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -15,6 +17,7 @@ public class CoinsController {
 
     private final CoinsService coinsService;
 
+    @CacheEvict(value = "videoCoins" ,key="#videoCoins.userId")
     @PutMapping
     public Result addCoins(@RequestBody VideoCoins videoCoins){
         log.info("视频投币:{}",videoCoins);
@@ -22,6 +25,7 @@ public class CoinsController {
         return Result.success();
     }
 
+    @Cacheable(value = "videoCoins" ,key="#userId")
     @GetMapping("/search/video/list/{userId}")
     public Result getVideoCoins(@PathVariable Long userId){
         log.info("列表获取投币视频:{}", userId);

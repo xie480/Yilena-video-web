@@ -18,6 +18,7 @@ public class HistoryController {
 
     private final HistoryService historyService;
 
+    @CacheEvict(value = "history", key = "#userId")
     @GetMapping("/video/{userId}/{videoId}")
     public Result addHistory(@PathVariable Long userId, @PathVariable Long videoId) {
         log.info("用户{}观看了视频{}", userId, videoId);
@@ -25,6 +26,7 @@ public class HistoryController {
         return Result.success();
     }
 
+    @Cacheable(value = "history", key = "#userId")
     @GetMapping("/{userId}")
     public Result getHistory(@PathVariable Long userId) {
         log.info("获取用户{}的观看历史", userId);
@@ -39,6 +41,7 @@ public class HistoryController {
         return Result.success();
     }
 
+    @CacheEvict(value = "history", key = "#userId")
     @DeleteMapping("/delAll/{userId}")
     public Result deleteAllHistory(@PathVariable Long userId) {
         log.info("删除用户{}的全部观看历史", userId);
@@ -46,6 +49,7 @@ public class HistoryController {
         return Result.success();
     }
 
+    @CacheEvict(value = "history", key = "#userId")
     @DeleteMapping("/{id}")
     public Result deleteHistory(@PathVariable Long id) {
         log.info("删除观看历史{}", id);

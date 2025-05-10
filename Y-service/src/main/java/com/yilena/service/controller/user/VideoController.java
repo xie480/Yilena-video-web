@@ -34,6 +34,7 @@ public class VideoController {
         return Result.success(videoService.getVideoByPage(videoDTO));
     }
 
+    @Cacheable(value = "video",key = "#id")
     @GetMapping("/search/{id}")
     public Result getVideoById(@PathVariable Long id){
         log.info("用户查询视频信息");
@@ -123,7 +124,7 @@ public class VideoController {
         return Result.success(videoService.getVideoByUserId(userId));
     }
 
-    @Cacheable(value = "userInfoVideo",key = "#userId+#sortType")
+    @Cacheable(value = "userInfoVideo",key = "#userId+ ':' + #sortType")
     @GetMapping("/search/userInfo/{userId}/{sortType}")
     public Result getUserInfoVideos(@PathVariable Long userId, @PathVariable Integer sortType){
         log.info("获取当前用户主页视频");

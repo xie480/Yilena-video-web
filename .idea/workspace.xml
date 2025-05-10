@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09ca584b-52f9-4abb-9488-76c8c074efab" name="更改" comment="2025/5/10——管理端日志管理前后端联调完成">
+    <list default="true" id="09ca584b-52f9-4abb-9488-76c8c074efab" name="更改" comment="2025/5/10——管理端数据展示前后端联调完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/ManagerReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/ManagerReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/PostMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/VideoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/VideoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/VideoPendingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/VideoPendingMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/ManagerReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/ManagerReportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/ManagerReportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/ManagerReportServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/PostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/PostMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/VideoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/VideoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/VideoPendingMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/VideoPendingMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/CoinsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/CoinsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/FavoritesFolderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/FavoritesFolderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/FollowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/FollowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/HistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/HistoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/UserVideoPendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/UserVideoPendingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/VideoCollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/VideoCollectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/VideoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,15 +284,7 @@
       <workItem from="1746714627272" duration="5680000" />
       <workItem from="1746754634687" duration="7513000" />
       <workItem from="1746784726713" duration="17242000" />
-      <workItem from="1746841856538" duration="20793000" />
-    </task>
-    <task id="LOCAL-00009" summary="2025/3/23——登录接口完善">
-      <option name="closed" value="true" />
-      <created>1742724325805</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1742724325805</updated>
+      <workItem from="1746841856538" duration="23779000" />
     </task>
     <task id="LOCAL-00010" summary="2025/3/23——关注他人接口完成">
       <option name="closed" value="true" />
@@ -680,7 +670,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746885349271</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="2025/5/10——管理端数据展示前后端联调完成">
+      <option name="closed" value="true" />
+      <created>1746894862181</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1746894862181</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -698,7 +696,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2025/3/28——投币接口完成" />
     <MESSAGE value="2025/3/28——评论接口完成" />
     <MESSAGE value="2025/3/28——点赞接口todo完善" />
     <MESSAGE value="2025/3/28——投稿合集接口完善" />
@@ -723,6 +720,7 @@
     <MESSAGE value="2025/5/9——管理端登录、首页以及视频审核前后端联调完成" />
     <MESSAGE value="2025/5/10——管理端动态审核、用户管理、管理员管理前后端联调完成" />
     <MESSAGE value="2025/5/10——管理端日志管理前后端联调完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025/5/10——管理端日志管理前后端联调完成" />
+    <MESSAGE value="2025/5/10——管理端数据展示前后端联调完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025/5/10——管理端数据展示前后端联调完成" />
   </component>
 </project>

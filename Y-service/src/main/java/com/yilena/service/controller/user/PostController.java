@@ -50,6 +50,7 @@ public class PostController {
         return Result.success();
     }
 
+    @Cacheable(value = "postWhichFollowing", key = "#id")
     @LogOperation
     @DeleteMapping
     public Result deletePost(Long id) {
