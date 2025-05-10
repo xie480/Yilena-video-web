@@ -1,5 +1,142 @@
-<script setup>
+<script lang="ts" setup>
+import type { TabsPaneContext } from 'element-plus'
+import { ref, reactive, onMounted,computed,watch } from 'vue'
+import { useRouter } from 'vue-router'
+import { useTransition } from '@vueuse/core'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import {
+  Iphone,
+  Location,
+  OfficeBuilding,
+  Tickets,
+  User,Search 
+} from '@element-plus/icons-vue'
+import type { ComponentSize } from 'element-plus'
+import { getUserList,updateUserStatus } from '@/api/user'
+import { getManagerList,updateManagerStatus } from '@/api/manager'
+import { getLogList } from '@/api/log'
 
+const activeName = ref('user')
+
+const isLoading = ref(true)
+
+const value2 = ref()
+
+const queryEntity = ref({
+  beginTime: '',
+  endTime: '',
+  page: 1,
+  pageSize: 10,
+  type: ''
+})
+
+const getCurrentLog = async () => {
+  if(currentTag.value == 'user'){
+    queryEntity.value.type = '0';
+  }else{
+    queryEntity.value.type = '1';
+  }
+  const res = await getLogList(queryEntity.value.beginTime,queryEntity.value.endTime,queryEntity.value.page,queryEntity.value.pageSize,queryEntity.value.type);
+  if(res.code == 1){
+    if(currentTag.value == 'user'){
+    userLog.value = res.data.rows;
+    userLogTotal.value = res.data.total
+  }else{
+    managerLog.value = res.data.rows;
+    managerLogTotal.value = res.data.total
+  }
+  }
+}
+
+const userLog = ref([])
+const userLogTotal = ref(0)
+const managerLog = ref([])
+const managerLogTotal = ref(0)
+
+
+watch(() => value2.value, (newValue, oldValue) => {
+   if (!newValue) {
+    queryEntity.value.beginTime = '';
+    queryEntity.value.endTime = '';
+  getCurrentLog();
+    return;
+  }
+  console.log(newValue)
+   queryEntity.value.beginTime = new Date(newValue[0]).toISOString().slice(0, 19);
+  queryEntity.value.endTime = new Date(newValue[1]).toISOString().slice(0, 19);
+  getCurrentLog();
+})
+
+const shortcuts = [
+  {
+    text: '7天内',
+    value: () => {
+      const end = new Date()
+      const start = new Date()
+      start.setDate(start.getDate() - 7)
+      return [start, end]
+    },
+  },
+  {
+    text: '1个月内',
+    value: () => {
+      const end = new Date()
+      const start = new Date()
+      start.setMonth(start.getMonth() - 1)
+      return [start, end]
+    },
+  },
+  {
+    text: '3个月内',
+    value: () => {
+      const end = new Date()
+      const start = new Date()
+      start.setMonth(start.getMonth() - 3)
+      return [start, end]
+    },
+  },
+]
+
+// 分页相关数据
+const currentPage = ref(1) // 当前页码
+const pageSize = ref(10) // 每页显示条数
+const total = ref(0) // 总数据量
+const currentTag = ref('') // 状态标签
+const handleClick = (tab: TabsPaneContext, event: Event) => {
+  console.log(tab, event)
+  pageSize.value = 10;
+  currentPage.value = 1;
+  value2.value = '';
+ if (tab.props.name === 'user') {
+    total.value = userLogTotal.value;
+    currentTag.value = 'user';
+  } else if (tab.props.name === 'manager') {
+    total.value = managerLogTotal.value;
+    currentTag.value = 'manager';
+  }
+}
+
+// 分页方法
+const handleSizeChange = async(val: number) => {
+  pageSize.value = val
+  currentPage.value = 1 ;
+  queryEntity.value.page = currentPage.value;
+  queryEntity.value.pageSize = pageSize.value;
+  getCurrentLog();
+}
+
+const handleCurrentChange = async(val: number) => {
+  currentPage.value = val
+  console.log(currentPage.value)
+  queryEntity.value.page = currentPage.value;
+  getCurrentLog();
+}
+
+onMounted(async() => {
+  currentTag.value = 'user';
+  await getCurrentLog();
+  isLoading.value = false
+})
 </script>
 
 <template>
@@ -168,11 +305,96 @@
   </div>
 </div>
  <div class="log-manage" v-else>
-    
+  <div class="user-datePicker">
+    <el-date-picker
+      v-model="value2"
+      type="datetimerange"
+      :shortcuts="shortcuts"
+      range-separator="到"
+      start-placeholder="开始时间(操作时间)"
+      end-placeholder="结束时间"
+      class="user-datePicker"
+    />
+    </div>
+     <el-tabs class="log-tabs" v-model="activeName" @tab-click="handleClick">
+    <el-tab-pane label="用户日志" name="user">
+      <el-table 
+    :data="userLog" 
+    class="user-table"
+    >
+    <el-table-column align="center" prop="id" label="ID" width="150" />
+    <el-table-column align="center" prop="operateUserId" label="操作用户ID" width="150" />
+    <el-table-column align="center" prop="className" label="操作类型" width="130" />
+    <el-table-column align="center" prop="methodName" label="调用接口名称" width="150" />
+    <el-table-column align="center" show-overflow-tooltip prop="methodParams" label="传入参数列表" width="250" />
+    <el-table-column align="center" show-overflow-tooltip prop="returnValue" label="返回参数列表" width="250" />
+    <el-table-column align="center" prop="costTime" label="耗时(s)" width="70" />
+    <el-table-column align="center" prop="operateTime" label="操作时间"/>
+  </el-table>
+  <el-pagination
+  class="el-pagination"
+  background
+  :current-page="currentPage"
+  :hide-on-single-page="total < 10"
+  :page-sizes="[10, 20, 50, 100]"
+  :page-size="pageSize"
+  layout="total, sizes, prev, pager, next, jumper"
+  :total="total"
+  @size-change="handleSizeChange"
+  @current-change="handleCurrentChange"
+/>
+    </el-tab-pane>
+    <el-tab-pane label="管理日志" name="manager">
+      <el-table 
+    :data="managerLog" 
+    class="user-table"
+    >
+    <el-table-column align="center" prop="id" label="ID" width="150" />
+    <el-table-column align="center" prop="operateUserId" label="操作管理员ID" width="150" />
+    <el-table-column align="center" prop="className" label="操作类型" width="130" />
+    <el-table-column align="center" prop="methodName" label="调用接口名称" width="150" />
+    <el-table-column align="center" show-overflow-tooltip prop="methodParams" label="传入参数列表" width="250" />
+    <el-table-column align="center" show-overflow-tooltip prop="returnValue" label="返回参数列表" width="250" />
+    <el-table-column align="center" prop="costTime" label="耗时(s)" width="70" />
+    <el-table-column align="center" prop="operateTime" label="操作时间"/>
+  </el-table>
+  <el-pagination
+  class="el-pagination"
+  background
+  :current-page="currentPage"
+  :hide-on-single-page="total < 10"
+  :page-sizes="[10, 20, 50, 100]"
+  :page-size="pageSize"
+  layout="total, sizes, prev, pager, next, jumper"
+  :total="total"
+  @size-change="handleSizeChange"
+  @current-change="handleCurrentChange"
+/>
+    </el-tab-pane>
+  </el-tabs>
  </div>
 </template>
 
 <style scoped>
+.user-datePicker{
+  position: absolute;
+  top: -7px;
+  right: 10px;
+  z-index: 10;
+}
+
+.log-tabs{
+  width: 1390px;
+  margin-left: 10px;
+}
+
+.log-tabs > .el-tabs__content {
+  padding: 32px;
+  color: #6b778c;
+  font-size: 32px;
+  font-weight: 600;
+}
+
 .loader {
   width: fit-content;
   height: fit-content;
