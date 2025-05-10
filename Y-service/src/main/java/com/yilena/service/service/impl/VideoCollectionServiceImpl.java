@@ -9,6 +9,7 @@ import com.yilena.service.entity.po.VideoCollection;
 import com.yilena.service.entity.vo.VideoVO;
 import com.yilena.service.service.VideoCollectionService;
 import com.yilena.service.utils.CurrentHolder;
+import com.yilena.service.utils.SensitiveWordFilter;
 import com.yilena.service.utils.SnowFlake;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,8 @@ public class VideoCollectionServiceImpl implements VideoCollectionService {
         videoCollection.setVisibility(videoCollection.getVisibility());
         videoCollection.setCreatedTime(LocalDateTime.now());
         videoCollection.setUpdatedTime(LocalDateTime.now());
+
+        videoCollection.setTitle(SensitiveWordFilter.filterSensitiveWords(videoCollection.getTitle()));
 
         videoCollectionMapper.addVideoCollection(videoCollection);
     }

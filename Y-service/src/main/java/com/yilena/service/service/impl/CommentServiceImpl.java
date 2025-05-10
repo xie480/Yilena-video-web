@@ -1,6 +1,7 @@
 package com.yilena.service.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.github.houbb.sensitive.word.core.SensitiveWordHelper;
 import com.yilena.service.constant.*;
 import com.yilena.service.dao.CommentMapper;
 import com.yilena.service.dao.PostMapper;
@@ -12,6 +13,7 @@ import com.yilena.service.entity.vo.CommentVO;
 import com.yilena.service.entity.vo.PostVO;
 import com.yilena.service.service.CommentService;
 import com.yilena.service.utils.CurrentHolder;
+import com.yilena.service.utils.SensitiveWordFilter;
 import com.yilena.service.utils.SnowFlake;
 import com.yilena.service.webSocket.ChatEndpoint;
 import lombok.RequiredArgsConstructor;
@@ -48,6 +50,9 @@ public class CommentServiceImpl implements CommentService {
         if(comment.getImageUrl().isEmpty()){
             comment.setImageUrl(null);
         }
+
+        // 过滤敏感词
+        comment.setContent(SensitiveWordFilter.filterSensitiveWords(comment.getContent()));
 
         commentMapper.addComment(comment);
 

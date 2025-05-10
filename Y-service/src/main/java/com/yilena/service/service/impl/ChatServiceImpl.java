@@ -87,6 +87,7 @@ public class ChatServiceImpl implements ChatService {
         });
     }
 
+    @Transactional
     @Override
     public void sendMessage(ChatMessage chatMessage) {
         chatMessage.setStatus(StatusConstant.STATUS_NO);
@@ -101,6 +102,7 @@ public class ChatServiceImpl implements ChatService {
         chatEndpoint.sendMessage(json);
     }
 
+    @Transactional
     @Override
     public void deleteMessage(Long messageId, Integer type) {
         ChatMessage message = chatMessageMapper.getMessageById(messageId);
@@ -227,6 +229,7 @@ public class ChatServiceImpl implements ChatService {
         return messageShowVOS;
     }
 
+    @Transactional
     public List<ChatMessage> mergeMessages(List<ChatMessage> dbMessages, List<Object> redisMessages){
         // 使用LinkedHashMap保持插入顺序
         Map<Long, ChatMessage> messageMap = new LinkedHashMap<>();
@@ -234,7 +237,7 @@ public class ChatServiceImpl implements ChatService {
         // 数据库消息去重（按ID）
         dbMessages.forEach(msg -> messageMap.put(msg.getId(), msg));
 
-        // Redis离线消息去重（需确保离线消息生成唯一ID）
+        // Redis离线消息去重
         redisMessages.forEach(obj -> {
             ChatMessage msg = JSON.parseObject((String)obj, ChatMessage.class);
             messageMap.putIfAbsent(msg.getId(), msg);

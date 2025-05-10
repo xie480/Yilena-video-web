@@ -18,6 +18,7 @@ import com.yilena.service.entity.vo.VideoVO;
 import com.yilena.service.es.VideoES;
 import com.yilena.service.service.VideoService;
 import com.yilena.service.utils.CurrentHolder;
+import com.yilena.service.utils.SensitiveWordFilter;
 import com.yilena.service.utils.SnowFlake;
 import com.yilena.service.utils.VideoDurationUtils;
 import lombok.RequiredArgsConstructor;
@@ -61,6 +62,9 @@ public class VideoServiceImpl implements VideoService {
         video.setBarrages(0);
         video.setUserId(CurrentHolder.getCurrent());
         video.setId(snowFlake.getID());
+
+        video.setDescription(SensitiveWordFilter.filterSensitiveWords(video.getDescription()));
+        video.setTitle(SensitiveWordFilter.filterSensitiveWords(video.getTitle()));
 
         // 获取视频时长
         long time = VideoDurationUtils.getVideoDuration(video.getVideoUrl());

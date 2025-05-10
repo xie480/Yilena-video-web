@@ -34,7 +34,6 @@ public class VideoController {
         return Result.success(videoService.getVideoByPage(videoDTO));
     }
 
-    @Cacheable(value = "video",key = "#id")
     @GetMapping("/search/{id}")
     public Result getVideoById(@PathVariable Long id){
         log.info("用户查询视频信息");

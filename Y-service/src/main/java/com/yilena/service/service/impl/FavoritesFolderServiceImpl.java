@@ -17,6 +17,7 @@ import com.yilena.service.entity.vo.VideoVO;
 import com.yilena.service.es.VideoES;
 import com.yilena.service.service.FavoritesFolderService;
 import com.yilena.service.utils.CurrentHolder;
+import com.yilena.service.utils.SensitiveWordFilter;
 import com.yilena.service.utils.SnowFlake;
 import com.yilena.service.webSocket.ChatEndpoint;
 import lombok.RequiredArgsConstructor;
@@ -54,6 +55,9 @@ public class FavoritesFolderServiceImpl implements FavoritesFolderService {
         favoritesFolder.setVideoCount(0);
         favoritesFolder.setSubscribersJson("[]");
         favoritesFolder.setClicks(0);
+
+        favoritesFolder.setTitle(SensitiveWordFilter.filterSensitiveWords(favoritesFolder.getTitle()));
+
         // 判断是否自定义封面
         String coverUrl = favoritesFolder.getCoverUrl();
         if (coverUrl != null && !coverUrl.isEmpty()) {

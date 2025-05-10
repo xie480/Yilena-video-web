@@ -16,6 +16,7 @@ import com.yilena.service.entity.vo.PostVO;
 import com.yilena.service.es.PostES;
 import com.yilena.service.service.PostService;
 import com.yilena.service.utils.CurrentHolder;
+import com.yilena.service.utils.SensitiveWordFilter;
 import com.yilena.service.utils.SnowFlake;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -50,6 +51,9 @@ public class PostServiceImpl implements PostService {
         post.setCreatedTime(LocalDateTime.now());
         post.setUpdatedTime(LocalDateTime.now());
         post.setId(snowFlake.getID());
+
+        post.setTitle(SensitiveWordFilter.filterSensitiveWords(post.getTitle()));
+        post.setContent(SensitiveWordFilter.filterSensitiveWords(post.getContent()));
 
         // 不需要后台审核
         post.setVisibility(StatusConstant.STATUS_YES);
