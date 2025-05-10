@@ -1,5 +1,356 @@
 <script setup>
+import * as echarts from 'echarts';
+import { ref, reactive, onMounted, watch } from 'vue'
+import { useRouter } from 'vue-router'
+import { useTransition } from '@vueuse/core'
+import { ElMessage,ElMessageBox } from 'element-plus';
+import { getVideoUploadList,getPostList,getUserList,getVideoNoPassList } from '@/api/dataShow';
 
+const videoChartDom = ref(null);
+const postChartDom = ref(null);
+const userChartDom = ref(null);
+const videoNoPassChartDom = ref(null);
+
+let myChartFollowers1;
+let myChartFollowers2;
+let myChartFollowers3;
+let myChartFollowers4;
+
+const isLoading = ref(false);
+
+const value1 = ref('1')
+const value2 = ref('1')
+const value3 = ref('1')
+const value4 = ref('1')
+
+watch(value1, () => {
+  getVideoUploadReport(); 
+})
+
+watch(value2, () => {
+  getPostReport(); 
+})
+
+watch(value3, () => {
+  getUserReport(); 
+})
+
+watch(value4, () => {
+  getVideoNoPassReport(); 
+})
+
+const options = [
+  {
+    value: '1',
+    label: '近7天',
+  },
+  {
+    value: '2',
+    label: '近30天',
+  },
+  {
+    value: '3',
+    label: '近90天',
+  }
+]
+
+const formatDate = (timestamp) => {
+  const date = new Date(timestamp);
+  const pad = n => n.toString().padStart(2, '0'); // 补零函数
+  return `${pad(date.getMonth() + 1)}/${pad(date.getDate())}`;
+}
+
+const getVideoUploadReport = async () => {
+  const result = await getVideoUploadList(value1.value);
+  if(result.code === 1){
+    const data = result.data; 
+    const xAxisData = [];
+    const seriesData = [];
+    for(const item of data){
+      xAxisData.push(formatDate(item.date));
+      seriesData.push(item.count);
+    }
+    myChartFollowers1.setOption({
+      title: {
+        text: '视频投稿趋势'
+      },
+      xAxis: {
+        data: xAxisData
+      },
+      series: [
+        {
+          data: seriesData,
+          name: '新增投稿视频'
+        }
+      ]
+    });
+  }
+}
+
+const getPostReport = async () => {
+  const result = await getPostList(value2.value);
+  if(result.code === 1){
+    const data = result.data; 
+    const xAxisData = [];
+    const seriesData = [];
+    for(const item of data){
+      xAxisData.push(formatDate(item.date));
+      seriesData.push(item.count);
+    }
+    myChartFollowers2.setOption({
+      title: {
+        text: '动态上传趋势'
+      },
+      xAxis: {
+        data: xAxisData
+      },
+      series: [
+        {
+          data: seriesData,
+          name: '新增上传投稿'
+        }
+      ]
+    });
+  }
+}
+
+const getUserReport = async () => {
+  const result = await getUserList(value3.value);
+  if(result.code === 1){
+    const data = result.data; 
+    const xAxisData = [];
+    const seriesData = [];
+    for(const item of data){
+      xAxisData.push(formatDate(item.date));
+      seriesData.push(item.count);
+    }
+    myChartFollowers3.setOption({
+      title: {
+        text: '新用户注册趋势'
+      },
+      xAxis: {
+        data: xAxisData
+      },
+      series: [
+        {
+          data: seriesData,
+          name: '新增注册用户'
+        }
+      ]
+    });
+  }
+}
+
+const getVideoNoPassReport = async () => {
+  const result = await getVideoNoPassList(value4.value);
+  if(result.code === 1){
+    const data = result.data; 
+    const xAxisData = [];
+    const seriesData = [];
+    for(const item of data){
+      xAxisData.push(formatDate(item.date));
+      seriesData.push(item.count);
+    }
+    myChartFollowers4.setOption({
+      title: {
+        text: '视频下架趋势'
+      },
+      xAxis: {
+        data: xAxisData
+      },
+      series: [
+        {
+          data: seriesData,
+          name: '新增下架视频'
+        }
+      ]
+    });
+  }
+}
+
+onMounted(() => { 
+  if (videoChartDom.value) {
+    myChartFollowers1 = echarts.init(videoChartDom.value);
+    getVideoUploadReport();
+    const option = {
+      title: {
+        text: 'Stacked Line'
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
+      xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: []
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          name: 'Direct',
+          type: 'line',
+          stack: 'Total',
+          color: 'rgb(255, 102, 153)',
+          data: []
+        },
+      ]
+    };
+
+    myChartFollowers1.setOption(option);
+  } else {
+    console.error('Initialize failed: invalid dom.');
+  }
+
+  if (postChartDom.value) {
+    myChartFollowers2 = echarts.init(postChartDom.value);
+    getPostReport();
+    const option = {
+      title: {
+        text: 'Stacked Line'
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
+      xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: []
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          name: 'Direct',
+          type: 'line',
+          stack: 'Total',
+          color: 'rgb(255, 102, 153)',
+          data: []
+        },
+      ]
+    };
+
+    myChartFollowers2.setOption(option);
+  } else {
+    console.error('Initialize failed: invalid dom.');
+  }
+
+   if (userChartDom.value) {
+    myChartFollowers3 = echarts.init(userChartDom.value);
+    getUserReport();
+    const option = {
+      title: {
+        text: 'Stacked Line'
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
+      xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: []
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          name: 'Direct',
+          type: 'line',
+          stack: 'Total',
+          color: 'rgb(255, 102, 153)',
+          data: []
+        },
+      ]
+    };
+
+    myChartFollowers3.setOption(option);
+  } else {
+    console.error('Initialize failed: invalid dom.');
+  }
+
+   if (videoNoPassChartDom.value) {
+    myChartFollowers4 = echarts.init(videoNoPassChartDom.value);
+    getVideoNoPassReport();
+    const option = {
+      title: {
+        text: 'Stacked Line'
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
+      xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: []
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          name: 'Direct',
+          type: 'line',
+          stack: 'Total',
+          color: 'rgb(255, 102, 153)',
+          data: []
+        },
+      ]
+    };
+
+    myChartFollowers4.setOption(option);
+  } else {
+    console.error('Initialize failed: invalid dom.');
+  }
+
+  isLoading.value = false;
+});
 </script>
 
 <template>
@@ -167,12 +518,90 @@
     </div>
   </div>
 </div>
- <div class="data-manage" v-else>
-    
+ <div class="data" v-else>
+  <el-row>
+    <div class="video-data">
+<el-select class="date-select" size="small" v-model="value1" placeholder="近七天">
+      <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+      />
+    </el-select>
+      <div class="data-show" ref="videoChartDom" style="width: 600px; height: 300px;"></div>
+    </div>
+    <div class="video-data">
+<el-select class="date-select" size="small" v-model="value2" placeholder="近七天">
+      <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+      />
+    </el-select>
+      <div class="data-show" ref="postChartDom" style="width: 600px; height: 300px;"></div>
+    </div>
+    </el-row>
+    <el-row>
+    <div class="video-data">
+<el-select class="date-select1" size="small" v-model="value3" placeholder="近七天">
+      <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+      />
+    </el-select>
+      <div class="data-show" ref="userChartDom" style="width: 600px; height: 300px;"></div>
+    </div>
+    <div class="video-data">
+<el-select class="date-select" size="small" v-model="value4" placeholder="近七天">
+      <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+      />
+    </el-select>
+      <div class="data-show" ref="videoNoPassChartDom" style="width: 600px; height: 300px;"></div>
+    </div>
+    </el-row>
  </div>
 </template>
 
 <style scoped>
+.date-select1{
+  position: absolute;
+  width: 75px;
+  margin-left: 150px;
+  margin-top: 15px;
+  z-index: 9999;
+}
+
+.date-select{
+  position: absolute;
+  width: 75px;
+  margin-left: 130px;
+  margin-top: 15px;
+  z-index: 9999;
+}
+
+.video-data{
+  margin-top: 40px;
+  margin-left: 68px;
+  background-color: rgb(240, 248, 255);
+  width: 630px;
+  height: 330px;
+  border-radius: 10px;
+}
+
+.data-show{
+  position: relative;
+  top: 15px;
+  margin-left: 10px;
+}
+
 .loader {
   width: fit-content;
   height: fit-content;
@@ -252,15 +681,5 @@
   100% {
     color: transparent;
   }
-}
-
-.data-manage {
-  background-color: rgb(240, 248, 255);
-  width: 1400px;
-  height: calc(100vh - 100px); /* 动态高度（视窗高度 - 顶部间距） */
-  margin-top: 20px;
-  overflow-y: auto; /* 垂直滚动 */
-  position: relative;
-  justify-self: center;
 }
 </style>
