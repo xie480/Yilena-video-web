@@ -736,7 +736,7 @@ onMounted(async() => {
           标签
         </div>
       </template>
-      <el-tag v-for="(item,index) in props.row.tags" size="small">{{ item }}</el-tag>
+      <el-tag style="margin-left: 5px;" v-for="(item,index) in props.row.tags" size="small">{{ item }}</el-tag>
     </el-descriptions-item>
     <el-descriptions-item
     align="center">

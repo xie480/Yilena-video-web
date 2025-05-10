@@ -15,8 +15,7 @@ import type { ComponentSize } from 'element-plus'
 // 视频播放组件
 import "vue3-video-play/dist/style.css";
 	import videoPlay from "vue3-video-play";
-import { getVideoByPage,updateVideoStatus,NoPassVideo } from '@/api/video'
-
+import { getPostList,updatePostStatus } from '@/api/post'
 // 分页相关数据
 const currentPage = ref(1) // 当前页码
 const pageSize = ref(10) // 每页显示条数
@@ -45,8 +44,25 @@ const handleExpandChange = (row) => {
 }
 
 const getCurrentPostList = async () => {
-	
+	const result = await getPostList(postQueryEntity.value.beginTime,postQueryEntity.value.endTime,postQueryEntity.value.page,postQueryEntity.value.pageSize);
+    if(result.code == 1){
+        post.value = result.data.rows;
+        post.value.forEach(item => {
+            item.createdTime = formatDate(item.createdTime);
+            item.updatedTime = formatDate(item.updatedTime);
+        })
+        total.value = result.data.total;
+        console.log(post.value);
+    }
 }
+
+const givePostNoPass1 = (id) => {
+    dialogTableVisible.value = true;
+    passEntity.value.id = id;
+    passEntity.value.reason = '';
+}
+
+
 
 // 分页方法
 const handleSizeChange = async(val: number) => {
@@ -65,6 +81,19 @@ const handleCurrentChange = async(val: number) => {
 }
 
 const value2 = ref('')
+
+watch(value2, (newValue, oldValue) => {
+ if (!newValue) {
+    postQueryEntity.value.beginTime = '';
+    postQueryEntity.value.endTime = '';
+  getCurrentPostList();
+    return;
+  }
+  console.log(newValue)
+   postQueryEntity.value.beginTime = new Date(newValue[0]).toISOString().slice(0, 19);
+  postQueryEntity.value.endTime = new Date(newValue[1]).toISOString().slice(0, 19);
+  getCurrentPostList();
+})
 
 const shortcuts = [
   {
@@ -128,8 +157,32 @@ const passEntity = ref({
     reason: ''
 })
 
+const givePostNoPass = async() => {
+    if(passEntity.value.reason == ''){
+        ElMessage({
+            type: 'error',
+            message: '请填写原因'
+        })
+        return;
+    }
+    const result = await updatePostStatus(passEntity.value);
+    if(result.code == 1){
+        dialogTableVisible.value = false;
+        ElMessage({
+            type: 'success',
+            message: '操作成功'
+        })	
+        getCurrentPostList();
+    }
+}
+
+const formatDate = (dateString) => {
+  return dateString.replace('T', ' ');
+}
+
 // 初始化时获取数据
 onMounted(async() => {
+    await getCurrentPostList();
   isLoading.value = false;
 })
 </script>
@@ -301,7 +354,7 @@ onMounted(async() => {
 </div>
 
   <div class="video-manage" v-else>
-    <div class="video-datePicker">
+    <div class="post-datePicker">
     <el-date-picker
       v-model="value2"
       type="datetimerange"
@@ -315,7 +368,7 @@ onMounted(async() => {
         v-if="post.length > 0">
         <el-table
     :data="post"
-    class="video-table"
+    class="post-table"
     row-key="id" 
     :expand-row-keys="expandedRows"  
     @expand-change="handleExpandChange"
@@ -325,24 +378,13 @@ onMounted(async() => {
         <div m="4" class="video-expand">
             <el-descriptions
     class="margin-top"
-    title="视频详细信息"
     :column="2"
     :size="size"
     border
     label-width="150px"
   >
-    <el-descriptions-item
-      :rowspan="2"
-      :width="140"
-      label="视频封面"
-      align="center"
-    >
-      <el-image
-        style="width: 500px;"
-        :src="props.row.coverUrl"
-      />
-    </el-descriptions-item>
-    <el-descriptions-item>
+    <el-descriptions-item :width="400"
+    align="center">
       <template #label>
         <div class="cell-item">
           <el-icon :style="iconStyle">
@@ -353,7 +395,8 @@ onMounted(async() => {
       </template>
       {{ props.row.username }}
     </el-descriptions-item>
-    <el-descriptions-item>
+    <el-descriptions-item
+    align="center">
       <template #label>
         <div class="cell-item">
             <el-icon :style="iconStyle"><ArrowRight /></el-icon>
@@ -366,30 +409,11 @@ onMounted(async() => {
     align="center">
       <template #label>
         <div class="cell-item">
-            <el-icon :style="iconStyle"><Clock /></el-icon>
-          视频时长
-        </div>
-      </template>
-      {{ props.row.time }}
-    </el-descriptions-item>
-    <el-descriptions-item>
-      <template #label>
-        <div class="cell-item">
             <el-icon :style="iconStyle"><CollectionTag /></el-icon>
           标签
         </div>
       </template>
-      <el-tag v-for="(item,index) in props.row.tags" size="small">{{ item }}</el-tag>
-    </el-descriptions-item>
-    <el-descriptions-item
-    align="center">
-      <template #label>
-        <div class="cell-item">
-            <el-icon :style="iconStyle"><VideoPlay /></el-icon>
-          播放量
-        </div>
-      </template>
-      {{ props.row.views }}
+      <el-tag style="margin-left: 5px;" v-for="(item,index) in props.row.tags" size="small">{{ item }}</el-tag>
     </el-descriptions-item>
     <el-descriptions-item
     align="center">
@@ -405,31 +429,11 @@ onMounted(async() => {
     align="center">
       <template #label>
         <div class="cell-item">
-            <el-icon :style="iconStyle"><Star /></el-icon>
-          收藏量
-        </div>
-      </template>
-      {{ props.row.favorites }}
-    </el-descriptions-item>
-    <el-descriptions-item
-    align="center">
-      <template #label>
-        <div class="cell-item">
             <el-icon :style="iconStyle"><Share /></el-icon>
           转发量
         </div>
       </template>
       {{ props.row.shares }}
-    </el-descriptions-item>
-    <el-descriptions-item
-    align="center">
-      <template #label>
-        <div class="cell-item">
-            <el-icon :style="iconStyle"><Coin /></el-icon>
-          投币
-        </div>
-      </template>
-      {{ props.row.coins  }}
     </el-descriptions-item>
     <el-descriptions-item
     align="center">
@@ -446,31 +450,33 @@ onMounted(async() => {
       <template #label>
         <div class="cell-item">
             <el-icon :style="iconStyle"><Switch /></el-icon>
-          目前状态
+          可见性
         </div>
       </template>
-      <el-tag type="warning">待审核</el-tag>
-    </el-descriptions-item>
-    <el-descriptions-item
-    align="center">
-      <template #label>
-        <div class="cell-item">
-            <el-icon :style="iconStyle"><Edit /></el-icon>
-          修改时间
-        </div>
-      </template>
-      {{ props.row.updatedTime }}
+      <el-tag :type="props.row.visibility == 1? 'success': 'danger'">{{ props.row.visibility == 1 ? '公开' : '私密' }}</el-tag>
     </el-descriptions-item>
   </el-descriptions>
-  <h3 style="margin-top: 30px;color: rgb(48, 49, 51);">视频源</h3>
+  <h3 style="margin-top: 30px;color: rgb(48, 49, 51);">内容</h3>
+  <el-row>
+  <div class="post-content">
+    {{ props.row.content }}
+  </div>
+</el-row>
+<el-row>
+    <img v-for="(item,index) in props.row.imageUrl" :key="index" :src="item" style="max-height: 200px;margin-right: 10px;">
+</el-row>
   <div class="button-group1">
-    <el-button type="danger" plain size="large" @click="givePostNoPass1(props.row.id)">下架</el-button>
+    <el-button v-if="props.row.visibility == 1" type="danger" plain size="large" @click="givePostNoPass1(props.row.id)">下架</el-button>
   </div>
         </div>
       </template>
     </el-table-column>
     <el-table-column align="center" label="ID" prop="id" width="150"/>
-    <el-table-column align="center" label="视频标题" prop="title" />
+    <el-table-column align="center" label="动态标题" prop="title">
+        <template #default="props">
+            {{ (props.row.title == null || props.row.title == '') ? '无' : props.row.title }}
+        </template>
+        </el-table-column>
     <el-table-column align="center" label="投稿时间" prop="createdTime" />
     <el-table-column align="center" label="修改时间" prop="updatedTime" />
   </el-table>
@@ -507,6 +513,12 @@ onMounted(async() => {
 </template>
 
 <style scoped>
+.post-table{
+    margin-top: 50px;
+    width: 95%;
+    justify-self: center;
+}
+
 /* From Uiverse.io by vinodjangid07 */ 
 .loader {
   width: fit-content;
@@ -590,25 +602,25 @@ onMounted(async() => {
 }
 
 
-.video-datePicker {
+.post-datePicker {
   text-align: center;
   border-right: solid 1px var(--el-border-color);
   flex: 1;
 }
-.video-datePicker:last-child {
+.post-datePicker:last-child {
   border-right: none;
 }
-.video-datePicker .demonstration {
+.post-datePicker .demonstration {
   display: block;
   color: var(--el-text-color-secondary);
   font-size: 14px;
   margin-bottom: 20px;
 }
 
-.video-datePicker{
+.post-datePicker{
   position: absolute;
   margin-top: 7px;
-  margin-left: 60px;
+  margin-left: 945px;
 }
 
 .video-search{
