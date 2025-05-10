@@ -19,6 +19,7 @@ public class VideoPendingController {
 
     private final VideoPendingService videoPendingService;
 
+    @Cacheable(value = "videoPage",key = "#videoPendingDTO.status + ':' + #videoPendingDTO.pageSize + ':' + #videoPendingDTO.page")
     @GetMapping("/page")
     public Result getVideoPendingByPageWhichWait(VideoPendingDTO videoPendingDTO){
         log.info("分页查询视频");
@@ -31,6 +32,7 @@ public class VideoPendingController {
         return Result.success(videoPendingService.getVideoPendingById(id));
     }
 
+    @CacheEvict(value = "videoPage")
     @PutMapping("/status")
     public Result updateVideoPendingStatus(@RequestBody VideoPendingStatusDTO videoPendingStatusDTO){
         log.info("更新待审核视频状态");
@@ -38,6 +40,7 @@ public class VideoPendingController {
         return Result.success();
     }
 
+    @CacheEvict(value = "videoPage")
     @PutMapping("/video")
     public Result updateVideoPendingFromVideo(@RequestBody VideoPendingStatusDTO videoPendingStatusDTO){
         log.info("下架视频");
