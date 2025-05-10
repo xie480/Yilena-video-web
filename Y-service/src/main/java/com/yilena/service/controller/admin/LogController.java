@@ -1,6 +1,7 @@
 package com.yilena.service.controller.admin;
 
 import com.yilena.service.entity.Result;
+import com.yilena.service.entity.dto.LogPageQueryDTO;
 import com.yilena.service.service.LogService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,7 @@ public class LogController {
 
     @GetMapping("/page")
     public Result getLogByPage(LogPageQueryDTO logPageQueryDTO) {
-        return logService.getLogByPage(logPageQueryDTO);
+        log.info("分页查询日志：{}", logPageQueryDTO);
+        return Result.success(logService.getLogByPage(logPageQueryDTO));
     }
 }

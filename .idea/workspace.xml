@@ -4,24 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09ca584b-52f9-4abb-9488-76c8c074efab" name="更改" comment="2025/5/9——管理端登录、首页以及视频审核前后端联调完成">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="09ca584b-52f9-4abb-9488-76c8c074efab" name="更改" comment="2025/5/10——管理端动态审核、用户管理、管理员管理前后端联调完成">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b8e7cd75-4e1f-42ee-82b8-3081cb03b5ee.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b8e7cd75-4e1f-42ee-82b8-3081cb03b5ee.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/aop/LogAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/aop/LogAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/config/RestClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/config/RestClientConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/PostPendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/PostPendingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/UserPendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/UserPendingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/VideoPendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/VideoPendingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/ManagerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/ManagerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/PostMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/ManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/ManagerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/PostPendingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/PostPendingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/ManagerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/ManagerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/PostPendingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/PostPendingServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/ManagerMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/ManagerMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/PostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/PostMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/LogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/ManagerLogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/ManagerLogMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/UserLogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/UserLogMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/LogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/LogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/LogServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/ManagerLogMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/ManagerLogMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/UserLogMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/UserLogMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,15 +283,7 @@
       <workItem from="1746714627272" duration="5680000" />
       <workItem from="1746754634687" duration="7513000" />
       <workItem from="1746784726713" duration="17242000" />
-      <workItem from="1746841856538" duration="15002000" />
-    </task>
-    <task id="LOCAL-00007" summary="2025/3/22——登录接口实现">
-      <option name="closed" value="true" />
-      <created>1742658049156</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1742658049156</updated>
+      <workItem from="1746841856538" duration="16065000" />
     </task>
     <task id="LOCAL-00008" summary="2025/3/23——登录接口完善">
       <option name="closed" value="true" />
@@ -685,7 +669,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746874367875</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="2025/5/10——管理端动态审核、用户管理、管理员管理前后端联调完成">
+      <option name="closed" value="true" />
+      <created>1746883796141</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1746883796141</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -703,7 +695,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2025/3/26——点赞接口完成" />
     <MESSAGE value="2025/3/28——收藏接口完成" />
     <MESSAGE value="2025/3/28——投币接口完成" />
     <MESSAGE value="2025/3/28——评论接口完成" />
@@ -728,6 +719,7 @@
     <MESSAGE value="2025/5/4——添加日志记录功能" />
     <MESSAGE value="Merge remote-tracking branch 'YVW/master' into back-core&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Y-service/src/main/java/com/yilena/service/dao/UserMapper.java&#10;#&#9;Y-service/src/main/resources/com/yilena/service/dao/UserMapper.xml&#10;#&#9;Y-service/src/main/resources/com/yilena/service/dao/VideoMapper.xml&#10;#&#9;Y-service/src/main/resources/com/yilena/service/dao/VideoPendingMapper.xml" />
     <MESSAGE value="2025/5/9——管理端登录、首页以及视频审核前后端联调完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025/5/9——管理端登录、首页以及视频审核前后端联调完成" />
+    <MESSAGE value="2025/5/10——管理端动态审核、用户管理、管理员管理前后端联调完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025/5/10——管理端动态审核、用户管理、管理员管理前后端联调完成" />
   </component>
 </project>

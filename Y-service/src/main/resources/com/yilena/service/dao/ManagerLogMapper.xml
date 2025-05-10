@@ -5,7 +5,22 @@
 <mapper namespace="com.yilena.service.dao.ManagerLogMapper">
 
     <insert id="addLog">
-        insert into log_manager(id, operateManagerId,className, methodName, methodParams, returnValue, costTime, operateTime)
+        insert into log_manager(id, operateUserId,className, methodName, methodParams, returnValue, costTime, operateTime)
         values (#{id}, #{operateUserId}, #{className}, #{methodName}, #{methodParams}, #{returnValue}, #{costTime}, #{operateTime})
     </insert>
+    <delete id="deleteLogsBeforeHalfYear">
+        delete from log_manager where operateTime &lt; DATE_SUB(NOW(), INTERVAL 6 MONTH)
+    </delete>
+    <select id="getLogByPage" resultType="com.yilena.service.entity.po.Log">
+        select *
+        from log_manager
+        <where>
+            <if test="beginTime != null">
+                and operateTime &gt;= #{beginTime}
+            </if>
+            <if test="endTime != null">
+                and operateTime &lt;= #{endTime}
+            </if>
+        </where>
+    </select>
 </mapper>

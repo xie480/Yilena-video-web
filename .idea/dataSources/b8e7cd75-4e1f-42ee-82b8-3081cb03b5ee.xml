@@ -943,7 +943,7 @@
     </schema>
     <schema id="300" parent="1" name="bli">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-05-10.12:55:50</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-05-10.13:32:47</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </schema>
     <user id="301" parent="1" name="root">
@@ -1330,7 +1330,7 @@
       <Position>1</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="383" parent="312" name="operateManagerId">
+    <column id="383" parent="312" name="operateUserId">
       <Position>2</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
