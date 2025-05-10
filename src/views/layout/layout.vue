@@ -43,6 +43,10 @@ onMounted(() => {
           <el-icon><Stamp /></el-icon>
           <span>&nbsp;&nbsp;&nbsp;视频审核</span>
         </el-menu-item>
+        <el-menu-item index="/post">
+          <el-icon><Sunny /></el-icon>
+          <span>&nbsp;&nbsp;&nbsp;动态管理</span>
+        </el-menu-item>
         <el-menu-item index="/user">
             <el-icon><List /></el-icon>
           <span>&nbsp;&nbsp;&nbsp;用户管理</span>
@@ -65,7 +69,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style>
 .index-main{
     position: absolute;
     top:58px;
@@ -122,7 +126,7 @@ onMounted(() => {
     z-index: -50;
     position: absolute;
     top: -105px;
-    height: 870px;
+    height: 880px;
     left: -80px;
 }
 
@@ -132,7 +136,7 @@ onMounted(() => {
   margin-top: -10px;
   margin-left: -10px;
   width: 240px;
-  height: 767px;
+  height: 777px;
   background-color: #F0F8FF;
   border-right: 1px solid #E1F5FE;
   padding: 0 0;

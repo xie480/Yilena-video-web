@@ -7,6 +7,7 @@ import user from '@/views/user/user.vue'
 import video from '@/views/video/video.vue'
 import layout from '@/views/layout/layout.vue'
 import login from '@/views/login/login.vue'
+import post from '@/views/post/post.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,7 +23,8 @@ const router = createRouter({
         {path: '/log', name: 'log', component: log},
         {path: '/manager', name: 'manager', component: manager},
         {path: '/user', name: 'user', component: user},
-        {path: '/video', name: 'video', component: video}
+        {path: '/video', name: 'video', component: video},
+        {path: '/post', name: 'post', component: post}
       ]
     },  
 ]
