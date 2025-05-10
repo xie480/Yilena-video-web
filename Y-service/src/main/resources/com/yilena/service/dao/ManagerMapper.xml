@@ -32,4 +32,23 @@
         select id, username, password, status, created_time as createdTime, updated_time as updatedTime
         from manager where id = #{id}
     </select>
+    <select id="getManagerByPage" resultType="com.yilena.service.entity.po.Manager">
+        select id, username, password, status, created_time as createdTime, updated_time as updatedTime
+        from manager
+        <where>
+            <if test="username != null and username != ''">
+                and username like concat('%', #{username}, '%')
+            </if>
+            <if test="beginTime != null">
+                and created_time >= #{beginTime}
+            </if>
+            <if test="endTime != null">
+                and created_time &lt;= #{endTime}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+            order by created_time desc
+    </select>
 </mapper>

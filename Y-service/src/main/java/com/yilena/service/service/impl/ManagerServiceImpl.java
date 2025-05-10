@@ -1,16 +1,22 @@
 package com.yilena.service.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.yilena.service.constant.StatusConstant;
 import com.yilena.service.constant.UserConstant;
 import com.yilena.service.dao.ManagerMapper;
 import com.yilena.service.entity.LoginInfo;
+import com.yilena.service.entity.PageResult;
+import com.yilena.service.entity.dto.ManagerPageQueryDTO;
 import com.yilena.service.entity.po.Manager;
 import com.yilena.service.exception.LoginException;
 import com.yilena.service.service.ManagerService;
 import com.yilena.service.utils.JwtUtils;
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.NameMangler;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -76,5 +82,13 @@ public class ManagerServiceImpl implements ManagerService {
     @Override
     public Manager getByUsername(String username) {
         return managerMapper.getByUsername(username);
+    }
+
+    @Override
+    public PageResult<Manager> getManagerByPage(ManagerPageQueryDTO managerPageQueryDTO) {
+        PageHelper.startPage(managerPageQueryDTO.getPage(), managerPageQueryDTO.getPageSize());
+        List<Manager> managers = managerMapper.getManagerByPage(managerPageQueryDTO);
+        Page<Manager> p = (Page<Manager>)managers;
+        return new PageResult<>(p.getTotal(), p.getResult());
     }
 }

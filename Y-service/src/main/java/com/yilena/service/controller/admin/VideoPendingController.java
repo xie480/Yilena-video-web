@@ -4,6 +4,7 @@ import com.yilena.service.constant.StatusConstant;
 import com.yilena.service.entity.Result;
 import com.yilena.service.entity.dto.VideoPendingDTO;
 import com.yilena.service.entity.dto.VideoPendingStatusDTO;
+import com.yilena.service.log.LogOperation;
 import com.yilena.service.service.VideoPendingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +33,7 @@ public class VideoPendingController {
         return Result.success(videoPendingService.getVideoPendingById(id));
     }
 
+    @LogOperation
     @CacheEvict(value = "videoPage")
     @PutMapping("/status")
     public Result updateVideoPendingStatus(@RequestBody VideoPendingStatusDTO videoPendingStatusDTO){
@@ -40,6 +42,7 @@ public class VideoPendingController {
         return Result.success();
     }
 
+    @LogOperation
     @CacheEvict(value = "videoPage")
     @PutMapping("/video")
     public Result updateVideoPendingFromVideo(@RequestBody VideoPendingStatusDTO videoPendingStatusDTO){

@@ -100,4 +100,22 @@
     <select id="getTotalPost" resultType="java.lang.Long">
         select count(id) from post
     </select>
+    <select id="getPostPendingByPage" resultType="com.yilena.service.entity.vo.PostVO">
+        select p.id,title, content, image_url as imageUrlJson, tags as tagsJson, video_id as videoId,
+        clicks, likes, favorites, shares, comments, user_id as userId,
+        visibility, p.created_time as createdTime, p.updated_time as updatedTime,
+        u.username,u.image as image
+        from post as p
+        left join user as u
+        on p.user_id = u.id
+        <where>
+        <if test="beginTime != null">
+            and p.created_time >= #{beginTime}
+        </if>
+        <if test="endTime != null">
+            and p.created_time &lt;= #{endTime}
+        </if>
+        </where>
+        order by p.created_time desc
+    </select>
 </mapper>

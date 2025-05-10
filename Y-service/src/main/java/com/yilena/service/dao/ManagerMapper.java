@@ -1,7 +1,10 @@
 package com.yilena.service.dao;
 
+import com.yilena.service.entity.dto.ManagerPageQueryDTO;
 import com.yilena.service.entity.po.Manager;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 @Mapper
 public interface ManagerMapper {
@@ -12,4 +15,6 @@ public interface ManagerMapper {
     Manager getManagerById(Integer id);
 
     void updatePassword(Manager manager);
+
+    List<Manager> getManagerByPage(ManagerPageQueryDTO managerPageQueryDTO);
 }

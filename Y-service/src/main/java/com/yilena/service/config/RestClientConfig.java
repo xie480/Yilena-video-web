@@ -13,6 +13,7 @@ public class RestClientConfig {
     @Bean
     public RestHighLevelClient restHighLevelClient(@Value("${elasticSearch.host}") String host) {
         return new RestHighLevelClient(RestClient.builder(
+                // todo 这里再git里要进行更改
                 HttpHost.create("http://192.168.100.128:9200")
         ));
     }

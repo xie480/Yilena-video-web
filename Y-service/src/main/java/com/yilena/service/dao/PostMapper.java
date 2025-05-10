@@ -1,5 +1,6 @@
 package com.yilena.service.dao;
 
+import com.yilena.service.entity.dto.PostPendingPageQueryDTO;
 import com.yilena.service.entity.po.Post;
 import com.yilena.service.entity.vo.PostVO;
 import org.apache.ibatis.annotations.Mapper;
@@ -23,4 +24,6 @@ public interface PostMapper {
     List<PostVO> getPostByUserId(Long userId);
 
     Long getTotalPost();
+
+    List<PostVO> getPostPendingByPage(PostPendingPageQueryDTO postPendingPageQueryDTO);
 }

@@ -3,7 +3,9 @@ package com.yilena.service.controller.admin;
 import com.yilena.service.constant.UserConstant;
 import com.yilena.service.entity.LoginInfo;
 import com.yilena.service.entity.Result;
+import com.yilena.service.entity.dto.ManagerPageQueryDTO;
 import com.yilena.service.entity.po.Manager;
+import com.yilena.service.log.LogOperation;
 import com.yilena.service.service.ManagerService;
 import com.yilena.service.utils.CurrentHolder;
 import lombok.RequiredArgsConstructor;
@@ -28,8 +30,9 @@ public class ManagerController {
         return Result.success(loginInfo);
     }
 
-    @PutMapping("/status/{status}")
-    public Result updateStatus(@PathVariable Integer status, Integer id) {
+    @LogOperation
+    @PutMapping("/status/{status}/{id}")
+    public Result updateStatus(@PathVariable Integer status, @PathVariable Integer id) {
         log.info("管理员修改状态");
         managerService.updateStatus(status, id);
         return Result.success();
@@ -42,6 +45,7 @@ public class ManagerController {
         return Result.success(manager);
     }
 
+    @LogOperation
     @PutMapping("/password")
     public Result updatePassword(@RequestBody Manager manager) {
         log.info("管理员修改密码");
@@ -61,5 +65,11 @@ public class ManagerController {
         log.info("管理员根据username:{}查询",username);
         Manager manager = managerService.getByUsername(username);
         return Result.success(manager);
+    }
+
+    @GetMapping("/page")
+    public Result getManagerByPage(ManagerPageQueryDTO managerPageQueryDTO) {
+        log.info("管理员分页查询");
+        return Result.success(managerService.getManagerByPage(managerPageQueryDTO));
     }
 }

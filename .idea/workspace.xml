@@ -5,16 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09ca584b-52f9-4abb-9488-76c8c074efab" name="更改" comment="2025/5/9——管理端登录、首页以及视频审核前后端联调完成">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b8e7cd75-4e1f-42ee-82b8-3081cb03b5ee.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b8e7cd75-4e1f-42ee-82b8-3081cb03b5ee.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/config/ElasticsearchConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/config/ElasticsearchConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/aop/LogAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/aop/LogAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/config/RestClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/config/RestClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/PostPendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/PostPendingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/UserPendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/UserPendingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/VideoPendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/VideoPendingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/VideoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/VideoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/VideoPendingMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/VideoPendingMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/ManagerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/ManagerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/dao/PostMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/ManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/ManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/PostPendingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/PostPendingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/ManagerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/ManagerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/PostPendingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/PostPendingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/ManagerMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/ManagerMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/PostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/PostMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +51,12 @@
     &quot;assignee&quot;: &quot;xie480&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/xie480/YVW.git&quot;,
-    &quot;accountId&quot;: &quot;fa28999f-0dfe-42f0-887e-35061c2778b4&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/xie480/Yilena-video-web.git",
+    "accountId": "fa28999f-0dfe-42f0-887e-35061c2778b4"
   }
-}</component>
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -71,44 +78,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.test.getID.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.test.test.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Y-service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Y-service [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Y-service [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Y-service [site].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Y-service [test].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Y-service [validate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Yilena-video-web [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Yilena-video-web [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Yilena-video-web [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Yilena-video-web [test].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.MainApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;F:/YilenaCode/Yilena-video-web/Y-service/src/test/java&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/YilenaCode/YVW(git-editon)&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.test.getID.executor": "Debug",
+    "JUnit.test.test.executor": "Run",
+    "Maven.Y-service [clean].executor": "Run",
+    "Maven.Y-service [compile].executor": "Run",
+    "Maven.Y-service [install].executor": "Run",
+    "Maven.Y-service [site].executor": "Run",
+    "Maven.Y-service [test].executor": "Run",
+    "Maven.Y-service [validate].executor": "Run",
+    "Maven.Yilena-video-web [clean].executor": "Run",
+    "Maven.Yilena-video-web [compile].executor": "Run",
+    "Maven.Yilena-video-web [install].executor": "Run",
+    "Maven.Yilena-video-web [test].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.MainApplication.executor": "Debug",
+    "git-widget-placeholder": "back-core",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "F:/YilenaCode/Yilena-video-web/Y-service/src/test/java",
+    "last_opened_file_path": "F:/YilenaCode/YVW(git-editon)",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -284,31 +291,7 @@
       <workItem from="1746714627272" duration="5680000" />
       <workItem from="1746754634687" duration="7513000" />
       <workItem from="1746784726713" duration="17242000" />
-      <workItem from="1746841856538" duration="6487000" />
-    </task>
-    <task id="LOCAL-00004" summary="2025/3/22——登录接口实现">
-      <option name="closed" value="true" />
-      <created>1742642839529</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1742642839529</updated>
-    </task>
-    <task id="LOCAL-00005" summary="2025/3/22——登录接口实现">
-      <option name="closed" value="true" />
-      <created>1742645747570</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1742645747570</updated>
-    </task>
-    <task id="LOCAL-00006" summary="2025/3/22——登录接口实现">
-      <option name="closed" value="true" />
-      <created>1742646068436</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1742646068436</updated>
+      <workItem from="1746841856538" duration="15002000" />
     </task>
     <task id="LOCAL-00007" summary="2025/3/22——登录接口实现">
       <option name="closed" value="true" />
@@ -678,7 +661,31 @@
       <option name="project" value="LOCAL" />
       <updated>1746799610271</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="2025/5/9——管理端登录、首页以及视频审核前后端联调完成">
+      <option name="closed" value="true" />
+      <created>1746874225090</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1746874225090</updated>
+    </task>
+    <task id="LOCAL-00054" summary="2025/5/9——管理端登录、首页以及视频审核前后端联调完成">
+      <option name="closed" value="true" />
+      <created>1746874343217</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1746874343217</updated>
+    </task>
+    <task id="LOCAL-00055" summary="2025/5/9——管理端登录、首页以及视频审核前后端联调完成">
+      <option name="closed" value="true" />
+      <created>1746874367875</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1746874367875</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -696,7 +703,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2025/3/26——动态接口完成" />
     <MESSAGE value="2025/3/26——点赞接口完成" />
     <MESSAGE value="2025/3/28——收藏接口完成" />
     <MESSAGE value="2025/3/28——投币接口完成" />
@@ -720,6 +726,7 @@
     <MESSAGE value="2025/4/15——前后端联调完善私信页面功能" />
     <MESSAGE value="2025/4/15——前后端联调完善历史记录页面功能" />
     <MESSAGE value="2025/5/4——添加日志记录功能" />
+    <MESSAGE value="Merge remote-tracking branch 'YVW/master' into back-core&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Y-service/src/main/java/com/yilena/service/dao/UserMapper.java&#10;#&#9;Y-service/src/main/resources/com/yilena/service/dao/UserMapper.xml&#10;#&#9;Y-service/src/main/resources/com/yilena/service/dao/VideoMapper.xml&#10;#&#9;Y-service/src/main/resources/com/yilena/service/dao/VideoPendingMapper.xml" />
     <MESSAGE value="2025/5/9——管理端登录、首页以及视频审核前后端联调完成" />
     <option name="LAST_COMMIT_MESSAGE" value="2025/5/9——管理端登录、首页以及视频审核前后端联调完成" />
   </component>
