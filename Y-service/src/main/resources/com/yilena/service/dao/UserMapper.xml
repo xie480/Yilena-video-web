@@ -75,6 +75,7 @@
             and created_time &lt;= #{endTime}
         </if>
         </where>
+        order by created_time desc
     </select>
     <select id="getUserReport" resultType="java.lang.Integer">
         select count(*)

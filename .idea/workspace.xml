@@ -5,28 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09ca584b-52f9-4abb-9488-76c8c074efab" name="更改" comment="2025/5/11——加入敏感词过滤功能">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/VideoPendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/admin/VideoPendingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/FollowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/FollowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/controller/user/VideoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/ChatMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/ChatMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/FavoritesFolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/FavoritesFolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/History.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/Like.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/Like.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/Share.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/Share.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/UserFollowing.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/UserFollowing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/VideoCoins.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/VideoCoins.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/VideoCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/VideoCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/VideoFavorites.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/po/VideoFavorites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/vo/CommentVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/vo/CommentVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/vo/MessageShowVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/vo/MessageShowVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/vo/UserVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/vo/UserVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/vo/VideoCollectionVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/vo/VideoCollectionVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/VideoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/service/impl/VideoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/dto/HistoryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/java/com/yilena/service/entity/dto/HistoryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Y-service/src/main/resources/com/yilena/service/dao/UserMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,15 +278,7 @@
       <workItem from="1746754634687" duration="7513000" />
       <workItem from="1746784726713" duration="17242000" />
       <workItem from="1746841856538" duration="25440000" />
-      <workItem from="1746928350731" duration="9101000" />
-    </task>
-    <task id="LOCAL-00012" summary="2025/3/24">
-      <option name="closed" value="true" />
-      <created>1742813363117</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1742813363117</updated>
+      <workItem from="1746928350731" duration="18844000" />
     </task>
     <task id="LOCAL-00013" summary="2025/3/24">
       <option name="closed" value="true" />
@@ -691,7 +664,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746898893642</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="2025/5/11——加入敏感词过滤功能">
+      <option name="closed" value="true" />
+      <created>1746945842501</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1746945842501</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
