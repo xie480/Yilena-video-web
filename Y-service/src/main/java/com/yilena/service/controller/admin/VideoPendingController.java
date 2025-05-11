@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -34,7 +35,12 @@ public class VideoPendingController {
     }
 
     @LogOperation
-    @CacheEvict(value = "videoPage")
+    @Caching(
+            evict = {
+                    @CacheEvict(value = "videoPage", allEntries = true),
+                    @CacheEvict(value = "videoPendings", allEntries = true)
+            }
+    )
     @PutMapping("/status")
     public Result updateVideoPendingStatus(@RequestBody VideoPendingStatusDTO videoPendingStatusDTO){
         log.info("更新待审核视频状态");
@@ -43,7 +49,7 @@ public class VideoPendingController {
     }
 
     @LogOperation
-    @CacheEvict(value = "videoPage")
+    @CacheEvict(value = "videoPage",allEntries = true)
     @PutMapping("/video")
     public Result updateVideoPendingFromVideo(@RequestBody VideoPendingStatusDTO videoPendingStatusDTO){
         log.info("下架视频");

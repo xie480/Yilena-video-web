@@ -7,6 +7,7 @@ import com.yilena.service.log.LogOperation;
 import com.yilena.service.service.VideoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ public class VideoController {
 
     private final VideoService videoService;
 
+    @CacheEvict(value = "videoPendings", key = "#video.userId + ':' + 0")
     @LogOperation
     @PostMapping
     public Result addVideo(@RequestBody Video video){
@@ -34,7 +36,7 @@ public class VideoController {
         return Result.success(videoService.getVideoByPage(videoDTO));
     }
 
-    @GetMapping("/search/{id}")
+    @GetMapping("/{id}")
     public Result getVideoById(@PathVariable Long id){
         log.info("用户查询视频信息");
         return Result.success(videoService.getVideoById(id));

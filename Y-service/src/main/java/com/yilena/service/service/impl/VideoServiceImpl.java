@@ -47,9 +47,6 @@ public class VideoServiceImpl implements VideoService {
     @Transactional
     @Override
     public void addVideoToPending(Video video) {
-        // 需要后台审核
-        video.setVisibility(StatusConstant.STATUS_NO);
-
         // 设置默认值
         video.setUpdatedTime(LocalDateTime.now());
         video.setCreatedTime(LocalDateTime.now());

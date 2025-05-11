@@ -6,6 +6,7 @@ import com.yilena.service.entity.dto.FollowPageDTO;
 import com.yilena.service.service.FollowService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class FollowController {
 
     private final FollowService followService;
 
-    @Cacheable(value = "follow", key = "#followDTO.getFollowerId")
+    @CacheEvict(value = "follow", key = "#followDTO.getFollowerId")
     @PostMapping
     public Result follow(@RequestBody FollowDTO followDTO){
         log.info("用户{}关注了用户{}", followDTO.getFollowerId(), followDTO.getFollowedId());
@@ -25,7 +26,7 @@ public class FollowController {
         return Result.success();
     }
 
-    @Cacheable(value = "follow", key = "#followerId")
+    @CacheEvict(value = "follow", key = "#followerId")
     @DeleteMapping("/{followedId}/{followerId}/{isSpecial}")
     public Result unfollow(@PathVariable Long followedId, @PathVariable Long followerId, @PathVariable Integer isSpecial){
         log.info("用户{}取消关注了用户{}", followerId, followedId);
