@@ -121,9 +121,10 @@ onMounted(() => {
  <div class="container">
     <div class="heading">欢迎回来!</div>
     <form class="form" @submit="managerLogin">
+      <el-row>
       <div class="input-group">
         <input 
-          class="input" 
+          class="input-index" 
           v-model="managerInfo.username" 
           @input="handleInput('username')"
           @blur="handleInput('username')"
@@ -132,10 +133,12 @@ onMounted(() => {
         >
         <div class="error-message" v-if="errors.username">{{ errors.username }}</div>
       </div>
+      </el-row>
       
+      <el-row>
       <div class="input-group">
         <input 
-          class="input" 
+          class="input-index" 
           v-model="managerInfo.password" 
           type="password" 
           @input="handleInput('password')"
@@ -145,6 +148,7 @@ onMounted(() => {
         >
         <div class="error-message" v-if="errors.password">{{ errors.password }}</div>
       </div>
+      </el-row>
       
       <span class="forgot-password"><a href="#">忘记密码 ?</a></span>
       <input class="login-button" type="submit" value="登录">
@@ -172,10 +176,11 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style>
 .input-group {
   position: relative;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .error-message {
@@ -213,10 +218,10 @@ onMounted(() => {
 
 /* From Uiverse.io by Smit-Prajapati */ 
 .container {
-    position: absolute;
+    position: relative;
     top: 150px;
     left: 800px;
-  max-width: 350px;
+  width: 350px;
   background: #F8F9FD;
   background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
   border-radius: 40px;
@@ -224,6 +229,8 @@ onMounted(() => {
   border: 5px solid rgb(255, 255, 255);
   box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
   margin: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .heading {
@@ -237,7 +244,7 @@ onMounted(() => {
   margin-top: 20px;
 }
 
-.form .input {
+.form .input-index {
   width: 305px;
   background: white;
   border: none;
@@ -248,15 +255,15 @@ onMounted(() => {
   border-inline: 2px solid transparent;
 }
 
-.form .input::-moz-placeholder {
+.form .input-index::-moz-placeholder {
   color: rgb(170, 170, 170);
 }
 
-.form .input::placeholder {
+.form .input-index::placeholder {
   color: rgb(170, 170, 170);
 }
 
-.form .input:focus {
+.form .input-index:focus {
   outline: none;
   border-inline: 2px solid #12B1D1;
 }

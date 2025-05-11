@@ -468,7 +468,7 @@ onMounted(async() => {
  </div>
 </template>
 
-<style>
+<style scoped>
 .el-table .danger-row {
   --el-table-tr-bg-color: var(--el-color-danger-light-9) !important;
 }
@@ -502,7 +502,7 @@ onMounted(async() => {
 
 .user-datePicker{
     margin-top: 7px;
-    margin-left: 92px;
+    margin-left: 185px;
 }
 
 .user-table{

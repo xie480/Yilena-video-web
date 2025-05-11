@@ -40,10 +40,12 @@ const getCurrentLog = async () => {
   if(res.code == 1){
     if(currentTag.value == 'user'){
     userLog.value = res.data.rows;
-    userLogTotal.value = res.data.total
+    userLogTotal.value = res.data.total;
+    total.value = res.data.total;
   }else{
     managerLog.value = res.data.rows;
-    managerLogTotal.value = res.data.total
+    managerLogTotal.value = res.data.total;
+    total.value = res.data.total;
   }
   }
 }
@@ -376,9 +378,20 @@ onMounted(async() => {
 </template>
 
 <style scoped>
+.user-table{
+  justify-self: center;
+  width: 95%;
+}
+
+.el-pagination{
+  position: relative;
+  justify-self: center;
+  top: 10px;
+}
+
 .user-datePicker{
   position: absolute;
-  top: -7px;
+  top: 7px;
   right: 10px;
   z-index: 10;
 }
@@ -386,6 +399,7 @@ onMounted(async() => {
 .log-tabs{
   width: 1390px;
   margin-left: 10px;
+  height: 100%;
 }
 
 .log-tabs > .el-tabs__content {
